@@ -9,7 +9,7 @@ public class TapeCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "SmallTape_Highlighted")
+        if (col.gameObject.name == "go2")
         {
             go1.SetActive(false);
             go2.SetActive(false);

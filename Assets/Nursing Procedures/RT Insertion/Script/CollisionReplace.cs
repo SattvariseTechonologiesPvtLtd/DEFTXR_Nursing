@@ -10,7 +10,7 @@ public class CollisionReplace : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "NGTube_Grabbable")
+        if (col.gameObject.name == "go2")
         {
 
             this.gameObject.SetActive(false);

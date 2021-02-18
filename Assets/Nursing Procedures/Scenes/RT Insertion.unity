@@ -5862,7 +5862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1183260352
 Transform:
   m_ObjectHideFlags: 0
@@ -6733,7 +6733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1418911988
 Animator:
   serializedVersion: 3
@@ -11584,7 +11584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &919132147658049901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13402,7 +13402,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 543450652241334590}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 60.426018, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 5.0847216e-17, y: 0, z: 0}
 --- !u!4 &5891250661788933214
 Transform:
   m_ObjectHideFlags: 0
