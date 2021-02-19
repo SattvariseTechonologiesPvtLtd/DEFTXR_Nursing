@@ -33,6 +33,11 @@ public class RoS_GameManager : MonoBehaviour
     [SerializeField] private GameObject gloves;
 
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
@@ -111,7 +116,11 @@ public class RoS_GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
 
+=======
+        
+>>>>>>> Stashed changes
     }
 
 
@@ -145,4 +154,7 @@ public class RoS_GameManager : MonoBehaviour
         antisepticSwabs.GetComponent<Rigidbody>().useGravity = false;
     }
 }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes

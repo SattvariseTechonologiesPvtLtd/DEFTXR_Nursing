@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 2dd66411a449f984e98095cb35bf7098
+=======
+<<<<<<< Updated upstream:Assets/Nursing Procedures/Emergency Trolly/3D models/New folder.meta
+guid: fe7d8e727dd2b874d904fc1dbbbce3bd
+=======
+guid: 2dd66411a449f984e98095cb35bf7098
+>>>>>>> Stashed changes:Assets/Nursing Procedures/Removal of Sutures.meta
+>>>>>>> Stashed changes
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

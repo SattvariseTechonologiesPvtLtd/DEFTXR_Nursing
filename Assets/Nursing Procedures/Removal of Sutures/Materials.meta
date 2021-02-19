@@ -1,9 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:Assets/Nursing Procedures/Removal of Sutures/Materials.meta
 guid: 4860f9ad6cf85db4dacfab4b2f45a10b
 =======
 guid: 8fb53b80e94558046ac43de780f3eb58
 >>>>>>> Stashed changes:Assets/Nursing Procedures/Emergency Trolly/3D models/Texture/AA batteries/Materials.meta
+=======
+<<<<<<<< Updated upstream:Assets/Nursing Procedures/Removal of Sutures/Materials.meta
+guid: 7871cf3dfdab6d3448885e2d59fd7da9
+========
+guid: 0225b15656b0d564bb59c54000138c84
+>>>>>>>> Stashed changes:Assets/Nursing Procedures/Blood Transfusion/Materials.meta
+>>>>>>> Stashed changes
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
