@@ -8,6 +8,9 @@ public class VoiceOver : MonoBehaviour
     [SerializeField]
     private List<AudioClip> intro_VO;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
