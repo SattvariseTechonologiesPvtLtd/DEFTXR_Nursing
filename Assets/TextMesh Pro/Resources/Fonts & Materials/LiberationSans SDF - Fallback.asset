@@ -78,6 +78,7 @@ Material:
     - _BumpOutline: 0
     - _BumpScale: 1
     - _ColorMask: 15
+    - _CullMode: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Diffuse: 0.5
@@ -374,6 +375,7 @@ MonoBehaviour:
   - {fileID: 0}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
+<<<<<<< Updated upstream
   m_ClearDynamicDataOnBuild: 0
   m_UsedGlyphRects:
   - m_X: 0
@@ -412,6 +414,10 @@ MonoBehaviour:
     m_Y: 0
     m_Width: 42
     m_Height: 199
+=======
+  m_ClearDynamicDataOnBuild: 1
+  m_UsedGlyphRects: []
+>>>>>>> Stashed changes
   m_FreeGlyphRects:
   - m_X: 152
     m_Y: 190
@@ -468,6 +474,7 @@ MonoBehaviour:
   m_KerningTable:
     kerningPairs: []
   m_FontFeatureTable:
+<<<<<<< Updated upstream
     m_GlyphPairAdjustmentRecords:
     - m_FirstAdjustmentRecord:
         m_GlyphIndex: 0
@@ -589,6 +596,9 @@ MonoBehaviour:
           m_XAdvance: 0
           m_YAdvance: 0
       m_FeatureLookupFlags: 0
+=======
+    m_GlyphPairAdjustmentRecords: []
+>>>>>>> Stashed changes
   fallbackFontAssets: []
   m_FallbackFontAssetTable: []
   m_CreationSettings:
