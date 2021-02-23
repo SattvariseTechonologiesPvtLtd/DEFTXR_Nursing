@@ -3,7 +3,27 @@ guid: d8d0b2696a828d844a2d52180d0e6f1c
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Static_saline_clamp_M
+    second: {fileID: 2100000, guid: 3e2c9ca9e7d28764c8335564053e63f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Static_saline_tube_M
+    second: {fileID: 2100000, guid: 6249be2218717214c85d97a2dcf2b77d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Static_saline_tube_iv_access_M
+    second: {fileID: 2100000, guid: 37bb813b3d0834a43af56abe1195301d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: saline_flush_clamp_M
+    second: {fileID: 2100000, guid: f6a36781f9f6b4748a2962fabf627df4, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
