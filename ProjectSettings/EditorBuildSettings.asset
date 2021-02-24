@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Nursing Procedures/Scenes/Intubation_&_Mechanical_Ventilation.unity
     guid: 8a4cd18fb1219634bb0a89a755d3b65e
   - enabled: 0
