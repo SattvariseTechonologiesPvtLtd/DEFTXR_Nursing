@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class BT_GameManager : MonoBehaviour
 {
+    public static BT_GameManager Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // list of the audioclips required
     [SerializeField]
     private List<AudioClip> intro_VO;
@@ -94,7 +101,7 @@ public class BT_GameManager : MonoBehaviour
     public GameObject Arrow_animation;
 
 
-    private void Start()
+    public void Start()
     {
 
         InitializeDefaultData();
@@ -105,6 +112,9 @@ public class BT_GameManager : MonoBehaviour
 
     IEnumerator Introduction()
     {
+        //wait
+        yield return new WaitForSeconds(10f);
+
         // Introduction
         Debug.Log("playing vo1");
         audioSource.PlayOneShot(intro_VO[0]);
@@ -160,76 +170,17 @@ public class BT_GameManager : MonoBehaviour
         CannulaIV_Final.SetActive(false);
         CannulaIV_Static_Highlighted.SetActive(true);
         CannulaIV_Final_Highlighted.SetActive(true);
+        yield return new WaitForSeconds(intro_VO[10].length);
+
         //Enable Cannula_IV
         CannulaIV_Static.GetComponent<BoxCollider>().enabled = true;
         CannulaIV_Static.GetComponent<Rigidbody>().useGravity = true;
-        yield return new WaitForSeconds(intro_VO[10].length);
-        yield return new WaitForSeconds(2f);
 
-        Normal_Saline.GetComponent<BoxCollider>().enabled = true;
-        Normal_Saline.GetComponent<Rigidbody>().useGravity = true;
     }
 
     void Update()
     {
-       if (CannulaIV_Static.GetComponent<OVRGrabbable>().isGrabbed == true && ActionsCompleted[1] == false)
-        {
-
-            StartCoroutine(Step1());
-            ActionsCompleted[1] = true;
-
-            Normal_Saline.SetActive(false);
-            NormalSaline_IVPole.SetActive(false);
-            Normal_Saline_Highlighted.SetActive(true);
-            NormalSaline_IVPole_Highlighted.SetActive(true);
-
-            Normal_Saline.GetComponent<BoxCollider>().enabled = true;
-            Normal_Saline.GetComponent<Rigidbody>().useGravity = true;
-
-        }
-
-       if (Normal_Saline.GetComponent<OVRGrabbable>().isGrabbed == true && ActionsCompleted[2] == false)
-        {
-            StartCoroutine(Step2());
-            ActionsCompleted[2] = true;
-
-            SalineTube_Static.SetActive(false);
-            FlushBag_SalineTube.SetActive(false);
-            SalineTubeStatic_Static_Highlighted.SetActive(true);
-            FlushBag_SalineTube_Highlighted.SetActive(true);
-
-            SalineTube_Static.GetComponent<BoxCollider>().enabled = true;
-            SalineTube_Static.GetComponent<Rigidbody>().useGravity = true;
-
-            Blood_Bag.GetComponent<BoxCollider>().enabled = true;
-            Blood_Bag.GetComponent<Rigidbody>().useGravity = true;
-
-        }
-
-        if (Blood_Bag.GetComponent<OVRGrabbable>().isGrabbed == true && ActionsCompleted[3] == false)
-        {
-            StartCoroutine(Step3());
-            ActionsCompleted[3] = true;
-
-            Blood_Bag.SetActive(false);
-            BloodBag_SalineTube.SetActive(false);
-            Blood_Bag_Highlighted.SetActive(true);
-            BloodBag_SalineTube_Highlighted.SetActive(true);
-
-            SalineTube_Static.GetComponent<BoxCollider>().enabled = true;
-            SalineTube_Static.GetComponent<Rigidbody>().useGravity = true;
-        }
-
-        if (SalineTube_Static.GetComponent<OVRGrabbable>().isGrabbed == true && ActionsCompleted[4] == false)
-        {
-            StartCoroutine(Step4());
-            ActionsCompleted[4] = true;
-
-            SalineTube_Static.SetActive(false);
-            BloodBag_SalineTube.SetActive(false);
-            SalineTubeStatic_Static_Highlighted.SetActive(true);
-            BloodBag_SalineTube_Highlighted.SetActive(true);
-        }
+       
 
     }
 
@@ -262,76 +213,20 @@ public class BT_GameManager : MonoBehaviour
 
     }
 
-
-
-    IEnumerator Step1()
+    public IEnumerator Step1()
     {
-        // STEP 1 Pick Nasogastric Tube
-
-       audioSource.PlayOneShot(intro_VO[11]);
-       
-       yield return new WaitForSeconds(intro_VO[11].length);
-
-    }
-
-    IEnumerator Step2()
-    {
-        // step 2 Highlight Tape and Attach to Nasogastric Tube
-        Guides[5].SetActive(true);
+        //Pick Up The Cannula IV
         audioSource.PlayOneShot(intro_VO[11]);
+        Normal_Saline.SetActive(false);
+        NormalSaline_IVPole.SetActive(false);
+        Normal_Saline_Highlighted.SetActive(true);
+        NormalSaline_IVPole_Highlighted.SetActive(true);
         yield return new WaitForSeconds(intro_VO[11].length);
-    }
 
-    IEnumerator Step3()
-    {
-        // Step 3 Highlight Water Soluble Lubricant
-        // Lubricate about 2 – 4 inches of the tube with a lubricant
-        Guides[6].SetActive(true);
-        audioSource.PlayOneShot(intro_VO[12]);
-        yield return new WaitForSeconds(intro_VO[12].length);
-        Guides[6].SetActive(false);
-        yield return new WaitForSeconds(4f);
-
-        // play insert tube animation
-
-        Guides[7].SetActive(true);
-        audioSource.PlayOneShot(intro_VO[13]);
- 
-        yield return new WaitForSeconds(intro_VO[13].length);
-        Guides[7].SetActive(false);
-    
-        yield return new WaitForSeconds(4f);
-
-        Guides[8].SetActive(true);
-        audioSource.PlayOneShot(intro_VO[14]);
-        yield return new WaitForSeconds(intro_VO[14].length);
-        Guides[8].SetActive(false);
-        yield return new WaitForSeconds(2f);
-
-        Guides[15].SetActive(true);
-        yield return new WaitForSeconds(2f);
+        //Enable Cannula_IV
+        Normal_Saline.GetComponent<BoxCollider>().enabled = true;
+        Normal_Saline.GetComponent<Rigidbody>().useGravity = true;
 
     }
 
-    IEnumerator Step4()
-    {
-
-        Guides[9].SetActive(true);
-        audioSource.PlayOneShot(intro_VO[15]);
-        yield return new WaitForSeconds(intro_VO[15].length);
-
-        Guides[9].SetActive(false);
-        yield return new WaitForSeconds(3f);
-
-        Guides[14].SetActive(true);
-       
-        yield return new WaitForSeconds(3f);
-        Guides[14].SetActive(false);
-
-        Guides[10].SetActive(true);
-        audioSource.PlayOneShot(intro_VO[16]);
-        yield return new WaitForSeconds(intro_VO[16].length);
-        Guides[10].SetActive(false);
-
-    }
 }

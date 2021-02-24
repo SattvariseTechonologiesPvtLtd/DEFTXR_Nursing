@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 92b5fe29f2c684041985b624da7e40d1
+guid: 3d44077e198ef1247be7f910af7e15e2
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,8 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: ef08e29c44f0cbd4f911b33383fd466e, type: 2}
+      name: Flush_bag_saline_tube_M
+    second: {fileID: 2100000, guid: c4c2aee3e42b211419828f6f050ace01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: saline_bag_iv_access_M1
+    second: {fileID: 2100000, guid: 068ff20b5d6417748a6b67b3828fa06c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: saline_flush_M1
+    second: {fileID: 2100000, guid: c25e15338686d704ba572785adecd158, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: saline_flush_clamp_M1
+    second: {fileID: 2100000, guid: 2b21c390ccc89db4e887398b3c26485b, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
