@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6a89ed54c2fc281428b3a551e0c08fb1
+guid: e99b3d3fc563031428f3cf4586397cf6
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,23 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Cannula_iv_M
-    second: {fileID: 2100000, guid: 3ecb13341034e1f4f883739a3f54ed8c, type: 2}
+      name: Blood_bag_tube_M1
+    second: {fileID: 2100000, guid: 76998476bdf7b74429f386caaf9d9716, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Cannula_iv_M1
-    second: {fileID: 2100000, guid: ff2925bc8bc40b34abec56c79a22317d, type: 2}
+      name: saline_bag_iv_access_M1
+    second: {fileID: 2100000, guid: 66bc56838af8d374a8f136ff7f563cc1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Cannula_iv_M2
-    second: {fileID: 2100000, guid: 7896634cb0d5c2846ba86f1ce7ef7495, type: 2}
+      name: saline_flush_M1
+    second: {fileID: 2100000, guid: cfe20de420aeb3a4e9d8377613231cb4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 521fcacf8f68ff547a8737bd6d5d7fa9, type: 2}
+      name: saline_flush_clamp_M1
+    second: {fileID: 2100000, guid: c46543dd959cd9143be4d68aa26cb48a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannulaIV_Collision : MonoBehaviour
+public class BloodBagCollision : MonoBehaviour
 {
     public GameObject go1;
     public GameObject go2;
@@ -10,11 +10,14 @@ public class CannulaIV_Collision : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "go2")
+        if (col.gameObject.name == "Blood_bag")
         {
             go1.SetActive(false);
             go2.SetActive(false);
             go3.SetActive(true);
         }
+
+        StartCoroutine(BT_GameManager.Instance.step2());
     }
 }
+

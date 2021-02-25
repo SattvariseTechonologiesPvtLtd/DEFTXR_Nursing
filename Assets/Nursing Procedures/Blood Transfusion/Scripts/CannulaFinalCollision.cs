@@ -10,7 +10,7 @@ public class CannulaFinalCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "CannulaIV")
+        if (col.gameObject.name == "Cannula_IV_static")
         {
             go1.SetActive(false);
             go2.SetActive(false);

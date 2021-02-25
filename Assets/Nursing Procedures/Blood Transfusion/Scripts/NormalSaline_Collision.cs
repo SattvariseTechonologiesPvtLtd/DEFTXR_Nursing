@@ -10,7 +10,7 @@ public class NormalSaline_Collision : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "Normal_Saline")
+        if (col.gameObject.name == "Saline_bag")
         {
             go1.SetActive(false);
             go2.SetActive(false);

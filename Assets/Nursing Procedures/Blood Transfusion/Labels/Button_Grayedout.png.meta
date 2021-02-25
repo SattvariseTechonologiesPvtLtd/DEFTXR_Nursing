@@ -1,0 +1,281 @@
+fileFormatVersion: 2
+guid: e7d2e6b9a4bef7a478f928d68d31ab30
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1649437152256793194
+    second: Button_Grayedout_0
+  - first:
+      213: -2278804970487712230
+    second: Button_Grayedout_0
+  - first:
+      213: 8135391164583344649
+    second: Button_Grayedout_1
+  - first:
+      213: 2954520386978306538
+    second: Button_Grayedout_2
+  - first:
+      213: -7565276544010423215
+    second: Button_Grayedout_3
+  - first:
+      213: 8220234301818047530
+    second: Button_Grayedout_4
+  - first:
+      213: -4898783417238338011
+    second: Button_Grayedout_5
+  - first:
+      213: -4798551618435423403
+    second: Button_Grayedout_6
+  - first:
+      213: 2121685644027209369
+    second: Button_Grayedout_7
+  - first:
+      213: -7811023344083488849
+    second: Button_Grayedout_8
+  - first:
+      213: -6430998936323980638
+    second: Button_Grayedout_9
+  - first:
+      213: -6252643767537236089
+    second: Button_Grayedout_10
+  - first:
+      213: -1713584421803649332
+    second: Button_Grayedout_11
+  - first:
+      213: -3068894763833274871
+    second: Button_Grayedout_12
+  - first:
+      213: 1941688419871190778
+    second: Button_Grayedout_13
+  - first:
+      213: -6135952937393512765
+    second: Button_Grayedout_14
+  - first:
+      213: -3707450229226736649
+    second: Button_Grayedout_15
+  - first:
+      213: 8710135752395601662
+    second: Button_Grayedout_16
+  - first:
+      213: -932398642564447087
+    second: Button_Grayedout_17
+  - first:
+      213: -5195623555410254558
+    second: Button_Grayedout_18
+  - first:
+      213: -5171131019421368284
+    second: Button_Grayedout_19
+  - first:
+      213: -3207418580068234954
+    second: Button_Grayedout_20
+  - first:
+      213: -1429066383321595151
+    second: Button_Grayedout_21
+  - first:
+      213: -8718521859211703479
+    second: Button_Grayedout_22
+  - first:
+      213: 6836847746947827844
+    second: Button_Grayedout_23
+  - first:
+      213: -3559925400012810927
+    second: Button_Grayedout_24
+  - first:
+      213: -3254320834495978561
+    second: Button_Grayedout_25
+  - first:
+      213: 4098323250216107692
+    second: Button_Grayedout_26
+  - first:
+      213: 8503394371970816185
+    second: Button_Grayedout_27
+  - first:
+      213: 7338324594702077347
+    second: Button_Grayedout_28
+  - first:
+      213: -2871828576123849382
+    second: Button_Grayedout_29
+  - first:
+      213: -6516159309674631790
+    second: Button_Grayedout_30
+  - first:
+      213: 8281602902379722792
+    second: Button_Grayedout_31
+  - first:
+      213: -6256079761356576799
+    second: Button_Grayedout_32
+  - first:
+      213: -1181078633598464604
+    second: Button_Grayedout_33
+  - first:
+      213: 1138649760497405466
+    second: Button_Grayedout_34
+  - first:
+      213: 5703448825373530117
+    second: Button_Grayedout_35
+  - first:
+      213: -1672530512182378735
+    second: Button_Grayedout_36
+  - first:
+      213: -118119522042467778
+    second: Button_Grayedout_37
+  - first:
+      213: 800872544131685845
+    second: Button_Grayedout_38
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: 2
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Button_Grayedout_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1024
+        height: 262
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a167fa5f3fe0060e0800000000000000
+      internalID: -2278804970487712230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

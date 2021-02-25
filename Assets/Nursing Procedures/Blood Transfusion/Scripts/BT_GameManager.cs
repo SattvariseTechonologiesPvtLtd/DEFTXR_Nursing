@@ -42,8 +42,6 @@ public class BT_GameManager : MonoBehaviour
     [SerializeField]
     private GameObject Syringe;
     [SerializeField]
-    private GameObject Infusion_Pumps;
-    [SerializeField]
     private GameObject BloodBag_IVPole;
     [SerializeField]
     private GameObject NormalSaline_IVPole;
@@ -72,8 +70,6 @@ public class BT_GameManager : MonoBehaviour
     [SerializeField]
     private GameObject Syringe_Highlighted;
     [SerializeField]
-    private GameObject Infusion_Pumps_Highlighted;
-    [SerializeField]
     private GameObject BloodBag_IVPole_Highlighted;
     [SerializeField]
     private GameObject NormalSaline_IVPole_Highlighted;
@@ -82,7 +78,7 @@ public class BT_GameManager : MonoBehaviour
     [SerializeField]
     private GameObject CannulaIV_Static_Highlighted;
     [SerializeField]
-    private GameObject SalineTubeStatic_Static_Highlighted;
+    private GameObject SalineTube_Static_Highlighted;
     [SerializeField]
     private GameObject BloodBag_SalineTube_Highlighted;
     [SerializeField]
@@ -191,9 +187,13 @@ public class BT_GameManager : MonoBehaviour
         Blood_Bag.SetActive(true);
         Normal_Saline.SetActive(true);
         Syringe.SetActive(true);
-        Infusion_Pumps.SetActive(true);
         CannulaIV_Static.SetActive(true);
         SalineTube_Static.SetActive(true);
+
+        BloodBag_Name.SetActive(true);
+        NormalSaline_Name.SetActive(true);
+        CannulaIV_Name.SetActive(true);
+        IVTube_Name.SetActive(true);
 
 
         //Disable all Interactables/Grabbable property of GrabbableObjects, except 1st
@@ -227,6 +227,12 @@ public class BT_GameManager : MonoBehaviour
         Normal_Saline.GetComponent<BoxCollider>().enabled = true;
         Normal_Saline.GetComponent<Rigidbody>().useGravity = true;
 
+    }
+
+    public IEnumerator step2()
+    {
+        audioSource.PlayOneShot(intro_VO[12]);
+        yield return new WaitForSeconds(intro_VO[12].length);
     }
 
 }
