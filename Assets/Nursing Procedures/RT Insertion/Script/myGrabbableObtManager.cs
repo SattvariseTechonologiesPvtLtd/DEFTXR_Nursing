@@ -13,7 +13,7 @@ public class myGrabbableObtManager : MonoBehaviour
         {
             Debug.Log("workinggggg");
 
-            myGrabbaleObj.SetActive(true);
+            //myGrabbaleObj.SetActive(true);
             this.gameObject.SetActive(false);
         }
         else

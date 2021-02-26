@@ -16,8 +16,6 @@ public class BloodBagCollision : MonoBehaviour
             go2.SetActive(false);
             go3.SetActive(true);
         }
-
-        StartCoroutine(BT_GameManager.Instance.step2());
     }
 }
 

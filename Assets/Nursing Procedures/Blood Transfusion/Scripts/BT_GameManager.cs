@@ -2,10 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BT_GameManager : MonoBehaviour
 {
     public static BT_GameManager Instance;
+
+  public Text debugText;
 
     private void Awake()
     {
@@ -18,7 +21,7 @@ public class BT_GameManager : MonoBehaviour
 
     // Actions referencing Actions to be completed by user
     [SerializeField]
-    private bool[] ActionsCompleted = { false };
+    public bool[] ActionsCompleted = { false };
 
     [SerializeField]
     private AudioSource audioSource;
@@ -27,18 +30,13 @@ public class BT_GameManager : MonoBehaviour
     [SerializeField]
     private GameObject patient;
 
-    private bool grabbedOnce1 = false;
-    private bool grabbedOnce2 = false;
-    private bool grabbedOnce3 = false;
-    private bool grabbedOnce4 = false;
-
     // Grababble Apparatus
     [SerializeField]
     private GameObject Alcohol_Pads;
     [SerializeField]
     private GameObject Blood_Bag;
     [SerializeField]
-    private GameObject Normal_Saline;
+    public GameObject Normal_Saline;
     [SerializeField]
     private GameObject Syringe;
     [SerializeField]
@@ -93,91 +91,112 @@ public class BT_GameManager : MonoBehaviour
     public GameObject NormalSaline_Name;
     public GameObject CannulaIV_Name;
     public GameObject IVTube_Name;
+    public GameObject Syringe_Name;
+    public GameObject alcoholPad_Name;
+
+    bool isCannulaGrabCalled = false;
+    bool isSalineFlashGrabCalled = false;
 
     public GameObject Arrow_animation;
 
-
-    public void Start()
+    private void Start()
     {
 
         InitializeDefaultData();
 
         StartCoroutine(Introduction());
+
+        //cannulaGrab();
+
     }
 
 
     IEnumerator Introduction()
     {
         //wait
-        yield return new WaitForSeconds(10f);
+        //yield return new WaitForSeconds(10f);
 
         // Introduction
-        Debug.Log("playing vo1");
         audioSource.PlayOneShot(intro_VO[0]);
         yield return new WaitForSeconds(intro_VO[0].length);
-
+        yield return new WaitForSeconds(1f);
         audioSource.PlayOneShot(intro_VO[1]);
         yield return new WaitForSeconds(intro_VO[1].length);
-
-        Debug.Log("playing vo2");
+        yield return new WaitForSeconds(1f);
         audioSource.PlayOneShot(intro_VO[2]);
         yield return new WaitForSeconds(intro_VO[2].length);
         yield return new WaitForSeconds(4f);
 
+        //Wash Hands
+        Guides[0].SetActive(true);
         audioSource.PlayOneShot(intro_VO[3]);
         yield return new WaitForSeconds(intro_VO[3].length);
-        yield return new WaitForSeconds(3f);
+        Guides[0].SetActive(false);
+        yield return new WaitForSeconds(4f);
 
-        //Wash Hands 
-        Guides[0].SetActive(true);
+        //Show Equipments
         audioSource.PlayOneShot(intro_VO[4]);
         yield return new WaitForSeconds(intro_VO[4].length);
-        Guides[0].SetActive(false);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
-        //Show Apparatus
+        audioSource.PlayOneShot(intro_VO[5]);
         Arrow_animation.SetActive(true);
         Arrow_animation.GetComponent<Animator>().Play("ArrowAnimation");
-        audioSource.PlayOneShot(intro_VO[5]);
         yield return new WaitForSeconds(intro_VO[5].length);
+        Arrow_animation.SetActive(false);
+        yield return new WaitForSeconds(3f);
 
+        //Instruction ( patient lie down )
+        Guides[1].SetActive(true);
         audioSource.PlayOneShot(intro_VO[6]);
         yield return new WaitForSeconds(intro_VO[6].length);
-        yield return new WaitForSeconds(2f);
+        Guides[1].SetActive(false);
+        yield return new WaitForSeconds(4f);
 
+        //Task 1 Pick Up The Cannula
+        Guides[2].SetActive(true);
         audioSource.PlayOneShot(intro_VO[7]);
         yield return new WaitForSeconds(intro_VO[7].length);
 
-        Arrow_animation.SetActive(false);
-
-        //Make Patient Position
-        audioSource.PlayOneShot(intro_VO[8]);
-        yield return new WaitForSeconds(intro_VO[8].length);
-        yield return new WaitForSeconds(5f);
-
-        //Wear Gloves
-        audioSource.PlayOneShot(intro_VO[9]);
-        yield return new WaitForSeconds(intro_VO[9].length);
-        yield return new WaitForSeconds(3f);
-
-        //Pick Up The Cannula IV
-        audioSource.PlayOneShot(intro_VO[10]);
-        CannulaIV_Static.SetActive(false);
-        CannulaIV_Final.SetActive(false);
         CannulaIV_Static_Highlighted.SetActive(true);
-        CannulaIV_Final_Highlighted.SetActive(true);
-        yield return new WaitForSeconds(intro_VO[10].length);
-
-        //Enable Cannula_IV
+        CannulaIV_Static.SetActive(true);
+        //Enable Cannula IV Grab
         CannulaIV_Static.GetComponent<BoxCollider>().enabled = true;
         CannulaIV_Static.GetComponent<Rigidbody>().useGravity = true;
+        
+    }
+
+    public void cannulaGrab()
+    {
+        CannulaIV_Name.SetActive(false);
+        Guides[2].SetActive(false);
+        StartCoroutine(Step1());
+    }
+
+    public void salineFlashGrab()
+    {
+
+        NormalSaline_Name.SetActive(false);
+        Guides[3].SetActive(false);
+        StartCoroutine(Step3());
 
     }
 
-    void Update()
-    {
-       
 
+    private void Update()
+    {
+        if (CannulaIV_Static.GetComponent<OVRGrabbable>().isGrabbed == true && isCannulaGrabCalled == false)
+        {
+            cannulaGrab();
+            isCannulaGrabCalled = true;
+
+        }
+
+        if (Normal_Saline.GetComponent<OVRGrabbable>().isGrabbed == true && isSalineFlashGrabCalled == false)
+        {
+            salineFlashGrab();
+            isSalineFlashGrabCalled = true;
+        }
     }
 
     void InitializeDefaultData()
@@ -194,6 +213,9 @@ public class BT_GameManager : MonoBehaviour
         NormalSaline_Name.SetActive(true);
         CannulaIV_Name.SetActive(true);
         IVTube_Name.SetActive(true);
+        Syringe_Name.SetActive(true);
+        alcoholPad_Name.SetActive(true);
+
 
 
         //Disable all Interactables/Grabbable property of GrabbableObjects, except 1st
@@ -215,24 +237,37 @@ public class BT_GameManager : MonoBehaviour
 
     public IEnumerator Step1()
     {
-        //Pick Up The Cannula IV
-        audioSource.PlayOneShot(intro_VO[11]);
-        Normal_Saline.SetActive(false);
-        NormalSaline_IVPole.SetActive(false);
-        Normal_Saline_Highlighted.SetActive(true);
-        NormalSaline_IVPole_Highlighted.SetActive(true);
-        yield return new WaitForSeconds(intro_VO[11].length);
+        //highlight final cannula position
+        audioSource.PlayOneShot(intro_VO[8]);
+        CannulaIV_Final_Highlighted.SetActive(true);
+        yield return new WaitForSeconds(intro_VO[8].length);
+    }
 
-        //Enable Cannula_IV
+    public IEnumerator Step2()
+    {
+
+        //pickup the Normal Saline
+        Guides[3].SetActive(true);
         Normal_Saline.GetComponent<BoxCollider>().enabled = true;
         Normal_Saline.GetComponent<Rigidbody>().useGravity = true;
+        audioSource.PlayOneShot(intro_VO[9]);
+        Normal_Saline_Highlighted.SetActive(true);
+        Normal_Saline.SetActive(true);
+        //Enable normal Saline to Grab
+        yield return new WaitForSeconds(intro_VO[9].length);
+
+        //debugText.text = "i am in step 2" + " | val - " + Normal_Saline.GetComponent<BoxCollider>().enabled;
 
     }
 
-    public IEnumerator step2()
+    public IEnumerator Step3()
     {
-        audioSource.PlayOneShot(intro_VO[12]);
-        yield return new WaitForSeconds(intro_VO[12].length);
+        //hang it on IV pole
+        Guides[4].SetActive(true);
+        NormalSaline_IVPole_Highlighted.SetActive(true);
+        NormalSaline_IVPole.SetActive(false);
+        audioSource.PlayOneShot(intro_VO[10]);
+        yield return new WaitForSeconds(intro_VO[10].length);
     }
-
+    
 }

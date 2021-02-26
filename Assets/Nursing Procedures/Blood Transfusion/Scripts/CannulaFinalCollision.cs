@@ -15,8 +15,9 @@ public class CannulaFinalCollision : MonoBehaviour
             go1.SetActive(false);
             go2.SetActive(false);
             go3.SetActive(true);
+            
         }
-
-        StartCoroutine(BT_GameManager.Instance.Step1());
+        StartCoroutine(BT_GameManager.Instance.Step2());
+        Destroy(this.gameObject);
     }
 }
