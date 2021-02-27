@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannulaFinalCollision : MonoBehaviour
+public class FlushBagFinalTube_Collision : MonoBehaviour
 {
     public GameObject go1;
     public GameObject go2;
@@ -11,14 +10,14 @@ public class CannulaFinalCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "Cannula_IV_static")
+        if (col.gameObject.name == "Saline_static_tube")
         {
             go1.SetActive(false);
             go2.SetActive(false);
             go3.SetActive(true);
         }
 
-        StartCoroutine(BT_GameManager.Instance.Step2());
-        Destroy(gameObject);
-    } 
+        //StartCoroutine(BT_GameManager.Instance.Step6());
+        Destroy(this.gameObject);
+    }
 }

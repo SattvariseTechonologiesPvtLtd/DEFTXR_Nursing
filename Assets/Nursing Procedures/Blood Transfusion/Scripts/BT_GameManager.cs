@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class BT_GameManager : MonoBehaviour
 {
-    public static BT_GameManager Instance;
+    public static BT_GameManager Instance, Inst;
 
-  public Text debugText;
+    public Text debugText;
 
     private void Awake()
     {
         Instance = this;
+        Inst = this;
     }
 
     // list of the audioclips required
@@ -96,7 +97,7 @@ public class BT_GameManager : MonoBehaviour
 
     bool isCannulaGrabCalled = false;
     bool isSalineFlashGrabCalled = false;
-
+    bool isIvTUbeGrabCalled = false;
     public GameObject Arrow_animation;
 
     private void Start()
@@ -117,7 +118,7 @@ public class BT_GameManager : MonoBehaviour
         //yield return new WaitForSeconds(10f);
 
         // Introduction
-        audioSource.PlayOneShot(intro_VO[0]);
+        /*audioSource.PlayOneShot(intro_VO[0]);
         yield return new WaitForSeconds(intro_VO[0].length);
         yield return new WaitForSeconds(1f);
         audioSource.PlayOneShot(intro_VO[1]);
@@ -144,7 +145,7 @@ public class BT_GameManager : MonoBehaviour
         Arrow_animation.GetComponent<Animator>().Play("ArrowAnimation");
         yield return new WaitForSeconds(intro_VO[5].length);
         Arrow_animation.SetActive(false);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(3f);*/
 
         //Instruction ( patient lie down )
         Guides[1].SetActive(true);
@@ -175,11 +176,17 @@ public class BT_GameManager : MonoBehaviour
 
     public void salineFlashGrab()
     {
-
         NormalSaline_Name.SetActive(false);
         Guides[3].SetActive(false);
         StartCoroutine(Step3());
 
+    }
+
+    public void ivTubeGrab1()
+    {
+        IVTube_Name.SetActive(false);
+        Guides[5].SetActive(false);
+        StartCoroutine(Step5());
     }
 
 
@@ -196,6 +203,12 @@ public class BT_GameManager : MonoBehaviour
         {
             salineFlashGrab();
             isSalineFlashGrabCalled = true;
+        }
+
+        if (SalineTube_Static.GetComponent<OVRGrabbable>().isGrabbed == true && isIvTUbeGrabCalled == false)
+        {
+            ivTubeGrab1();
+            isIvTUbeGrabCalled = true;
         }
     }
 
@@ -245,19 +258,17 @@ public class BT_GameManager : MonoBehaviour
 
     public IEnumerator Step2()
     {
-
-        //pickup the Normal Saline
-        Guides[3].SetActive(true);
+        //Enable normal Saline to Grab
         Normal_Saline.GetComponent<BoxCollider>().enabled = true;
         Normal_Saline.GetComponent<Rigidbody>().useGravity = true;
+        //pickup the Normal Saline vo
+        Guides[3].SetActive(true);
         audioSource.PlayOneShot(intro_VO[9]);
-        Normal_Saline_Highlighted.SetActive(true);
+        Normal_Saline_Highlighted.SetActive(true);  
         Normal_Saline.SetActive(true);
-        //Enable normal Saline to Grab
         yield return new WaitForSeconds(intro_VO[9].length);
-
+   
         //debugText.text = "i am in step 2" + " | val - " + Normal_Saline.GetComponent<BoxCollider>().enabled;
-
     }
 
     public IEnumerator Step3()
@@ -265,9 +276,32 @@ public class BT_GameManager : MonoBehaviour
         //hang it on IV pole
         Guides[4].SetActive(true);
         NormalSaline_IVPole_Highlighted.SetActive(true);
-        NormalSaline_IVPole.SetActive(false);
+        //NormalSaline_IVPole.SetActive(false);
         audioSource.PlayOneShot(intro_VO[10]);
         yield return new WaitForSeconds(intro_VO[10].length);
+        Guides[4].SetActive(false);
+
     }
-    
+
+    public IEnumerator Step4()
+    {
+        audioSource.PlayOneShot(intro_VO[11]);
+        Guides[5].SetActive(true);
+        SalineTube_Static_Highlighted.SetActive(true);
+        SalineTube_Static.SetActive(true);
+        yield return new WaitForSeconds(intro_VO[11].length);
+        
+        //Enable static Saline tube to Grab
+        SalineTube_Static.GetComponent<BoxCollider>().enabled = true;
+        SalineTube_Static.GetComponent<Rigidbody>().useGravity = true;
+    }
+
+    public IEnumerator Step5()
+    {
+        //Attach To The Normal Saline
+        Guides[6].SetActive(true);
+        audioSource.PlayOneShot(intro_VO[12]);
+        FlushBag_SalineTube_Highlighted.SetActive(true);
+        yield return new WaitForSeconds(intro_VO[12].length);
+    }
 }
