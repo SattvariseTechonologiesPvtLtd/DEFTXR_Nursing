@@ -2,22 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collision : MonoBehaviour
+public class Mask_Replace : MonoBehaviour
 {
-    public GameObject Highlighted;
+    public GameObject go1;
     public GameObject go2;
     public GameObject go3;
-  
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.CompareTag("Highlighted"))
+        if (col.gameObject.name == "NonRebreatherMask")
         {
-
-            this.gameObject.SetActive(false);
+            go1.SetActive(false);
             go2.SetActive(false);
-           
-
             go3.SetActive(true);
         }
     }
