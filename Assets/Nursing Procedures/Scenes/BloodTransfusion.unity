@@ -4095,6 +4095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugText: {fileID: 0}
+  audioSource: {fileID: 1162026136}
   intro_VO:
   - {fileID: 8300000, guid: c1f4799784fa9bb468d857a72008c65a, type: 3}
   - {fileID: 8300000, guid: 8aaf362e73bef0143baaaa803a1ebd10, type: 3}
@@ -4117,20 +4118,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bc07ed647cc9a2640b23a51a10af3e36, type: 3}
   - {fileID: 8300000, guid: df6e2d7223a354b47b5d367b0cb84052, type: 3}
   - {fileID: 8300000, guid: 44a7c17e0f7fc7645839d48447377a92, type: 3}
-  ActionsCompleted: 0000
-  audioSource: {fileID: 1162026136}
-  patient: {fileID: 919132148348545345}
-  Alcohol_Pads: {fileID: 919132148242975935}
-  Blood_Bag: {fileID: 919132148588013141}
-  Normal_Saline: {fileID: 919132148804951219}
-  Syringe: {fileID: 919132148536892130}
-  BloodBag_IVPole: {fileID: 919132148866788418}
-  NormalSaline_IVPole: {fileID: 919132147495253604}
-  CannulaIV_Final: {fileID: 919132149031094331}
-  CannulaIV_Static: {fileID: 919132148153702064}
-  SalineTube_Static: {fileID: 919132149169774806}
-  BloodBag_SalineTube: {fileID: 919132148990295068}
-  FlushBag_SalineTube: {fileID: 919132149580694126}
   Guides:
   - {fileID: 625452004}
   - {fileID: 309863225}
@@ -4139,24 +4126,6 @@ MonoBehaviour:
   - {fileID: 2103964757}
   - {fileID: 1078543520}
   - {fileID: 666981713}
-  Alcohol_Pads_Highlighted: {fileID: 1334276727}
-  Blood_Bag_Highlighted: {fileID: 919132149406359763}
-  Normal_Saline_Highlighted: {fileID: 919132149444639230}
-  Syringe_Highlighted: {fileID: 408290629}
-  BloodBag_IVPole_Highlighted: {fileID: 919132148634431799}
-  NormalSaline_IVPole_Highlighted: {fileID: 919132149236832876}
-  CannulaIV_Final_Highlighted: {fileID: 919132148288502589}
-  CannulaIV_Static_Highlighted: {fileID: 919132148685058055}
-  SalineTube_Static_Highlighted: {fileID: 808791475}
-  BloodBag_SalineTube_Highlighted: {fileID: 919132147977367500}
-  FlushBag_SalineTube_Highlighted: {fileID: 919132148528106730}
-  Labels: []
-  BloodBag_Name: {fileID: 1297232295}
-  NormalSaline_Name: {fileID: 1867209415}
-  CannulaIV_Name: {fileID: 1907368055}
-  IVTube_Name: {fileID: 1625057424}
-  Syringe_Name: {fileID: 1797432513}
-  alcoholPad_Name: {fileID: 560231396}
   Arrow_animation: {fileID: 2654937364587827536}
 --- !u!82 &1162026136
 AudioSource:
@@ -4842,6 +4811,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247164366}
   m_CullTransparentMesh: 0
+--- !u!1 &1252284514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1252284515}
+  - component: {fileID: 1252284516}
+  m_Layer: 0
+  m_Name: OriginalObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1252284515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252284514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1916193485}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1252284516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252284514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca8eb708108af5145a52f19212dd795d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Alcohol_Pads: {fileID: 919132148242975935}
+  Blood_Bag: {fileID: 919132148588013141}
+  Normal_Saline: {fileID: 919132148804951219}
+  Syringe: {fileID: 919132148536892130}
+  BloodBag_IVPole: {fileID: 919132148866788418}
+  NormalSaline_IVPole: {fileID: 919132147495253604}
+  CannulaIV_Final: {fileID: 919132149031094331}
+  CannulaIV_Static: {fileID: 919132148153702064}
+  SalineTube_Static: {fileID: 919132149169774806}
+  BloodBag_SalineTube: {fileID: 919132148990295068}
+  FlushBag_SalineTube: {fileID: 919132149580694126}
 --- !u!1 &1260594537
 GameObject:
   m_ObjectHideFlags: 0
@@ -5903,6 +5926,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566520980}
   m_CullTransparentMesh: 0
+--- !u!1 &1568725176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1568725177}
+  - component: {fileID: 1568725178}
+  m_Layer: 0
+  m_Name: EquipmentLabels
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1568725177
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568725176}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1916193485}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1568725178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568725176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca4b470d8c3b8a643b7ab6c611890c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BloodBag_Name: {fileID: 1297232295}
+  NormalSaline_Name: {fileID: 1867209415}
+  CannulaIV_Name: {fileID: 1907368055}
+  IVTube_Name: {fileID: 1625057424}
+  Syringe_Name: {fileID: 1797432513}
+  alcoholPad_Name: {fileID: 560231396}
 --- !u!1 &1594491158
 GameObject:
   m_ObjectHideFlags: 0
@@ -7645,6 +7717,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1162026134}
+  - {fileID: 1252284515}
+  - {fileID: 2065310758}
+  - {fileID: 1568725177}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8139,6 +8214,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063705246}
   m_CullTransparentMesh: 0
+--- !u!1 &2065310757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2065310758}
+  - component: {fileID: 2065310759}
+  m_Layer: 0
+  m_Name: HighlightObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2065310758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065310757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1916193485}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2065310759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065310757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70b873347c3ec442bcc9fe137850174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Alcohol_Pads_Highlighted: {fileID: 1334276727}
+  Blood_Bag_Highlighted: {fileID: 919132149406359763}
+  Normal_Saline_Highlighted: {fileID: 919132149444639230}
+  Syringe_Highlighted: {fileID: 408290629}
+  BloodBag_IVPole_Highlighted: {fileID: 919132148634431799}
+  NormalSaline_IVPole_Highlighted: {fileID: 919132149236832876}
+  CannulaIV_Final_Highlighted: {fileID: 919132148288502589}
+  CannulaIV_Static_Highlighted: {fileID: 919132148685058055}
+  SalineTube_Static_Highlighted: {fileID: 808791475}
+  BloodBag_SalineTube_Highlighted: {fileID: 919132147977367500}
+  FlushBag_SalineTube_Highlighted: {fileID: 919132148528106730}
 --- !u!1 &2069204496
 GameObject:
   m_ObjectHideFlags: 0
@@ -9332,7 +9461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148804951219}
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 1.618, y: 0.86, z: -3.107}
+  m_LocalPosition: {x: 1.618, y: 0.8762, z: -3.107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4901234531520558461}
@@ -9427,7 +9556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149444639230}
   m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 1.618, y: 0.86, z: -3.107}
+  m_LocalPosition: {x: 1.618, y: 0.8762, z: -3.107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4901234531153596464}
@@ -9567,7 +9696,7 @@ GameObject:
   - component: {fileID: 919132148153702067}
   - component: {fileID: 919132148153702066}
   m_Layer: 0
-  m_Name: Cannula_IV_static
+  m_Name: CannulaIV_Static
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9646,8 +9775,8 @@ GameObject:
   - component: {fileID: 543450652291948935}
   - component: {fileID: 3469287838357384738}
   - component: {fileID: 1711813854361492200}
-  - component: {fileID: 919132148288502590}
   - component: {fileID: 919132148288502591}
+  - component: {fileID: 919132148288502590}
   m_Layer: 0
   m_Name: Cannula iv final_Highlighted
   m_TagString: Untagged
@@ -9667,9 +9796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026e2bb219c8fc848a4976900001b8af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go1: {fileID: 919132148288502589}
-  go2: {fileID: 919132148153702064}
-  go3: {fileID: 919132149031094331}
 --- !u!65 &919132148288502591
 BoxCollider:
   m_ObjectHideFlags: 0

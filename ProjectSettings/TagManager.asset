@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Highlight
+  - CannulaIV_Static
   layers:
   - Default
   - TransparentFX

@@ -12,13 +12,13 @@ public class NormalSaline_Collision : MonoBehaviour
     {
         if (coll.gameObject.name == "Saline_bag")
         {
+            go3.SetActive(true);
             go1.SetActive(false);
             go2.SetActive(false);
-            go3.SetActive(true);
+
         }
 
-        StartCoroutine(BT_GameManager.Inst.Step4());
-        StartCoroutine(BT_GameManager.Inst.Step4());
-        //Destroy(gameObject);
+       // StartCoroutine(BT_GameManager.Instance.Step4());
+        Destroy(gameObject);
     }
 }
