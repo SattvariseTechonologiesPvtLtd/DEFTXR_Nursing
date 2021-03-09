@@ -4,7 +4,8 @@ using OculusSampleFramework;
 
 public class Pose : MonoBehaviour
 {
-    public Transform handpos;
+    public Transform handposR;
+    public Transform handposL;
     // Use this for initialization
     void Start()
     {
@@ -14,6 +15,7 @@ public class Pose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.transform.position = handpos.position;
+        this.gameObject.transform.position = handposR.position;
+        this.gameObject.transform.position = handposL.position;
     }
 }
