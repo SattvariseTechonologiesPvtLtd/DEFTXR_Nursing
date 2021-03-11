@@ -30,6 +30,8 @@ public class highlightObj : MonoBehaviour
     [SerializeField]
     public GameObject SalineTube_Static_Highlighted;
     [SerializeField]
+    public GameObject SalineTube_Static_Highlighted_2;
+    [SerializeField]
     public GameObject BloodBag_SalineTube_Highlighted;
     [SerializeField]
     public GameObject FlushBag_SalineTube_Highlighted;

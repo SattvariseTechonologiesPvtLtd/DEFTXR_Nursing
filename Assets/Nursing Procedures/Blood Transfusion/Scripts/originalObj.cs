@@ -30,6 +30,8 @@ public class originalObj : MonoBehaviour
     [SerializeField]
     public GameObject SalineTube_Static;
     [SerializeField]
+    public GameObject SalineTube_Static_2;
+    [SerializeField]
     public GameObject BloodBag_SalineTube;
     [SerializeField]
     public GameObject FlushBag_SalineTube;

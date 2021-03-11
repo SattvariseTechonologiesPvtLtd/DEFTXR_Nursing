@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class NormalSaline_Collision : MonoBehaviour
 {
-    public GameObject go1;
-    public GameObject go2;
-    public GameObject go3;
+ 
 
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.name == "Saline_bag")
         {
-            go3.SetActive(true);
-            go1.SetActive(false);
-            go2.SetActive(false);
+            Debug.Log("Collided");
 
+            originalObj.Instance.NormalSaline_IVPole.SetActive(true);
+            originalObj.Instance.Normal_Saline.SetActive(false);
+            
+
+            BT_GameManager.Instance.leftHandGrab.GrabEnd();
+
+            StartCoroutine(BT_GameManager.Instance.Step4());
+            highlightObj.Instance.NormalSaline_IVPole_Highlighted.SetActive(false);
         }
 
-       // StartCoroutine(BT_GameManager.Instance.Step4());
-        Destroy(gameObject);
+        
+      
     }
 }

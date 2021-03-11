@@ -13,7 +13,13 @@ public class myGrabbableObtManager : MonoBehaviour
         {
             Debug.Log("workinggggg");
 
-            //myGrabbaleObj.SetActive(true);
+            myGrabbaleObj.SetActive(true);
+            myGrabbaleObj.GetComponent<BoxCollider>().enabled = true;
+            myGrabbaleObj.GetComponent<Rigidbody>().useGravity = true;
+            myGrabbaleObj.GetComponent<Rigidbody>().isKinematic = false;
+
+            BT_GameManager.Instance.touch_input.SetActive(false);
+
             this.gameObject.SetActive(false);
         }
         else

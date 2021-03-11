@@ -10,6 +10,8 @@ public class BT_GameManager : MonoBehaviour
 
     public Text debugText;
 
+    public OVRGrabber leftHandGrab;
+
     public void Awake()
     {
         Instance = this;
@@ -28,7 +30,10 @@ public class BT_GameManager : MonoBehaviour
     bool isCannulaGrabCalled = false;
     bool isSalineFlashGrabCalled = false;
     bool isIvTUbeGrabCalled = false;
+    bool isBloodBagGrabCalled = false;
+    bool isIVTube2GrabCalled = false;
     public GameObject Arrow_animation;
+    public GameObject touch_input;
 
     private void Start()
     {
@@ -45,25 +50,27 @@ public class BT_GameManager : MonoBehaviour
     IEnumerator Introduction()
     {
         //wait
-        //yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(10f);
 
         // Introduction
-        /*audioSource.PlayOneShot(intro_VO[0]);
+        audioSource.PlayOneShot(intro_VO[0]);
         yield return new WaitForSeconds(intro_VO[0].length);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
+
         audioSource.PlayOneShot(intro_VO[1]);
         yield return new WaitForSeconds(intro_VO[1].length);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
+
         audioSource.PlayOneShot(intro_VO[2]);
         yield return new WaitForSeconds(intro_VO[2].length);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
 
         //Wash Hands
         Guides[0].SetActive(true);
         audioSource.PlayOneShot(intro_VO[3]);
         yield return new WaitForSeconds(intro_VO[3].length);
         Guides[0].SetActive(false);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
 
         //Show Equipments
         audioSource.PlayOneShot(intro_VO[4]);
@@ -75,7 +82,7 @@ public class BT_GameManager : MonoBehaviour
         Arrow_animation.GetComponent<Animator>().Play("ArrowAnimation");
         yield return new WaitForSeconds(intro_VO[5].length);
         Arrow_animation.SetActive(false);
-        yield return new WaitForSeconds(3f);*/
+        yield return new WaitForSeconds(3f);
 
         //Instruction ( patient lie down )
         Guides[1].SetActive(true);
@@ -89,6 +96,8 @@ public class BT_GameManager : MonoBehaviour
         audioSource.PlayOneShot(intro_VO[7]);
         yield return new WaitForSeconds(intro_VO[7].length);
 
+
+        touch_input.SetActive(true);
         highlightObj.Instance.CannulaIV_Static_Highlighted.SetActive(true);
         //originalObj.Instance.CannulaIV_Static.SetActive(true);
 
@@ -98,16 +107,7 @@ public class BT_GameManager : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.name == "CannulaIV_Static")
-        {
-            originalObj.Instance.CannulaIV_Final.SetActive(true);
-            highlightObj.Instance.CannulaIV_Final_Highlighted.SetActive(false);
-            originalObj.Instance.CannulaIV_Static.SetActive(false);
-            StartCoroutine(Step2());
-        }
-    }
+    
 
     public void cannulaGrab()
     {
@@ -124,12 +124,26 @@ public class BT_GameManager : MonoBehaviour
 
     }
 
-    /*public void ivTubeGrab1()
+    public void ivTubeGrab1()
     {
         equipmentLabels.Instance.IVTube_Name.SetActive(false);
         Guides[5].SetActive(false);
         StartCoroutine(Step5());
-    }*/
+    }
+
+    public void bloodBagGrab()
+    {
+        equipmentLabels.Instance.BloodBag_Name.SetActive(false);
+        Guides[7].SetActive(false);
+        StartCoroutine(Step7());
+    }
+
+    public void ivTubeGrab2()
+    {
+        equipmentLabels.Instance.IVTube_Name.SetActive(false);
+        Guides[5].SetActive(false);
+        StartCoroutine(Step9());
+    }
 
 
     private void Update()
@@ -147,11 +161,23 @@ public class BT_GameManager : MonoBehaviour
             isSalineFlashGrabCalled = true;
         }
 
-       /* if (originalObj.Instance.SalineTube_Static.GetComponent<OVRGrabbable>().isGrabbed == true && isIvTUbeGrabCalled == false)
+       if (originalObj.Instance.SalineTube_Static.GetComponent<OVRGrabbable>().isGrabbed == true && isIvTUbeGrabCalled == false)
         {
             ivTubeGrab1();
             isIvTUbeGrabCalled = true;
-        }*/
+        }
+
+        if (originalObj.Instance.Blood_Bag.GetComponent<OVRGrabbable>().isGrabbed == true && isBloodBagGrabCalled == false)
+        {
+            bloodBagGrab();
+            isBloodBagGrabCalled = true;
+        }
+
+        if (originalObj.Instance.SalineTube_Static_2.GetComponent<OVRGrabbable>().isGrabbed == true && isIVTube2GrabCalled == false)
+        {
+            ivTubeGrab2();
+            isIVTube2GrabCalled = true;
+        }
     }
 
     void InitializeDefaultData()
@@ -188,6 +214,9 @@ public class BT_GameManager : MonoBehaviour
         originalObj.Instance.CannulaIV_Static.GetComponent<Rigidbody>().useGravity = false;
         originalObj.Instance.SalineTube_Static.GetComponent<Rigidbody>().useGravity = false;
 
+
+        touch_input.SetActive(false);
+
     }
 
     public IEnumerator Step1()
@@ -195,27 +224,29 @@ public class BT_GameManager : MonoBehaviour
         //highlight final cannula position
         audioSource.PlayOneShot(intro_VO[8]);
         highlightObj.Instance.CannulaIV_Final_Highlighted.SetActive(true);
+        
         yield return new WaitForSeconds(intro_VO[8].length);
     }
 
     public IEnumerator Step2()
     {
-        originalObj.Instance.CannulaIV_Final.SetActive(true);
-        originalObj.Instance.CannulaIV_Static.SetActive(false);
-        highlightObj.Instance.CannulaIV_Final_Highlighted.SetActive(false);
+        touch_input.SetActive(true);       
 
-        //Enable normal Saline to Grab
-        //originalObj.Instance.Normal_Saline.GetComponent<BoxCollider>().enabled = true;
-        // originalObj.Instance.Normal_Saline.GetComponent<Rigidbody>().useGravity = true;
-        //originalObj.Instance.Normal_Saline.GetComponent<Rigidbody>().isKinematic = true;
+      
 
         //pickup the Normal Saline vo
         Guides[3].SetActive(true);
         audioSource.PlayOneShot(intro_VO[9]);
         highlightObj.Instance.Normal_Saline_Highlighted.SetActive(true);
 
+        debugText.text = "I am here in step 2";
+
+        //Enable normal Saline to Grab
+
         originalObj.Instance.Normal_Saline.GetComponent<BoxCollider>().enabled = true;
         originalObj.Instance.Normal_Saline.GetComponent<Rigidbody>().useGravity = true;
+
+        debugText.text = "I am here in step 2"+"|" + originalObj.Instance.Normal_Saline.GetComponent<BoxCollider>().enabled + "|"+originalObj.Instance.Normal_Saline.GetComponent<Rigidbody>().useGravity;
         yield return new WaitForSeconds(intro_VO[9].length);
 
     }
@@ -225,35 +256,115 @@ public class BT_GameManager : MonoBehaviour
         //hang it on IV pole
         Guides[4].SetActive(true);
         highlightObj.Instance.NormalSaline_IVPole_Highlighted.SetActive(true);
-        //NormalSaline_IVPole.SetActive(false);
+       // originalObj.Instance.NormalSaline_IVPole.SetActive(false);       
+        
         audioSource.PlayOneShot(intro_VO[10]);
         yield return new WaitForSeconds(intro_VO[10].length);
         Guides[4].SetActive(false);
 
     }
 
-    /*public IEnumerator Step4()
+    public IEnumerator Step4()
     {
+        touch_input.SetActive(true);
+
         Guides[5].SetActive(true);
         audioSource.PlayOneShot(intro_VO[11]);
         highlightObj.Instance.SalineTube_Static_Highlighted.SetActive(true);
-        originalObj.Instance.SalineTube_Static.SetActive(true);
-        yield return null;
-        //yield return new WaitForSeconds(intro_VO[11].length);
+      
+        
+        yield return new WaitForSeconds(intro_VO[11].length);
 
         //Enable static Saline tube to Grab
-        originalObj.Instance.SalineTube_Static.GetComponent<BoxCollider>().enabled = true;
-        originalObj.Instance.SalineTube_Static.GetComponent<Rigidbody>().useGravity = true;
-    }*/
+       
 
-   /* public IEnumerator Step5()
+
+        yield return null;
+    }
+
+    public IEnumerator Step5()
     {
         //Attach To The Normal Saline
         Guides[6].SetActive(true);
         audioSource.PlayOneShot(intro_VO[12]);
         highlightObj.Instance.FlushBag_SalineTube_Highlighted.SetActive(true);
         yield return new WaitForSeconds(intro_VO[12].length);
-    }*/
+        Guides[6].SetActive(false);
+
+    }
+
+    public IEnumerator Step6()
+    {
+        touch_input.SetActive(true);
+
+        //pick up the blood bag
+        Guides[7].SetActive(true);
+        audioSource.PlayOneShot(intro_VO[13]);
+        highlightObj.Instance.Blood_Bag_Highlighted.SetActive(true);
+        originalObj.Instance.Blood_Bag.SetActive(false);
+        yield return new WaitForSeconds(intro_VO[13].length);
+
+        //Enable static Saline tube to Grab
+        originalObj.Instance.Blood_Bag.GetComponent<BoxCollider>().enabled = true;
+        originalObj.Instance.Blood_Bag.GetComponent<Rigidbody>().useGravity = true;
+    }
+
+    public IEnumerator Step7()
+    {
+        //blood bag hang it on IV pole
+        Guides[4].SetActive(true);
+        highlightObj.Instance.BloodBag_IVPole_Highlighted.SetActive(true);
+        //originalObj.Instance.BloodBag_IVPole.SetActive(false);       
+
+        audioSource.PlayOneShot(intro_VO[10]);
+        yield return new WaitForSeconds(intro_VO[10].length);
+        Guides[4].SetActive(false);
+    }
+
+    public IEnumerator Step8()
+    {
+        touch_input.SetActive(true);
+        //pick up the iv tube
+        Guides[5].SetActive(true);
+        equipmentLabels.Instance.IVTube_Name.SetActive(true);
+        audioSource.PlayOneShot(intro_VO[11]);
+        highlightObj.Instance.SalineTube_Static_Highlighted_2.SetActive(true);
+        originalObj.Instance.SalineTube_Static_2.SetActive(false);
+
+        yield return new WaitForSeconds(intro_VO[11].length);
+
+        //Enable static Saline tube to Grab
+        originalObj.Instance.SalineTube_Static_2.GetComponent<BoxCollider>().enabled = true;
+        originalObj.Instance.SalineTube_Static_2.GetComponent<Rigidbody>().useGravity = true;
+
+    }
+
+    public IEnumerator Step9()
+    {
+        //connect iv tube to blood bag
+        Guides[8].SetActive(true);
+        audioSource.PlayOneShot(intro_VO[14]);
+        highlightObj.Instance.BloodBag_SalineTube_Highlighted.SetActive(true);
+        yield return new WaitForSeconds(intro_VO[14].length);
+        Guides[8].SetActive(false);
+
+    }
+
+    public IEnumerator Step10()
+    {
+        audioSource.PlayOneShot(intro_VO[17]);
+        yield return new WaitForSeconds(intro_VO[17].length);
+        yield return new WaitForSeconds(2f);
+
+        audioSource.PlayOneShot(intro_VO[18]);
+        originalObj.Instance.BloodBag_SalineTube.SetActive(false);
+        yield return new WaitForSeconds(intro_VO[18].length);
+        yield return new WaitForSeconds(2f);
+
+        audioSource.PlayOneShot(intro_VO[20]);
+        yield return new WaitForSeconds(intro_VO[20].length);
+        yield return new WaitForSeconds(2f);
+    }
 
     public void salineEnable()
     {
