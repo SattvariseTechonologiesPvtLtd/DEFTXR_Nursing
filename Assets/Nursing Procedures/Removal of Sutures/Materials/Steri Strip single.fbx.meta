@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 90ea307a273b69a488a77e1c731dacb1
+guid: 43ef6d2030b019b459ea86efc4c4ae84
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Scissor_M
-    second: {fileID: 2100000, guid: 24b1e4b7aa528c34fb66cdf0a3c0185e, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0

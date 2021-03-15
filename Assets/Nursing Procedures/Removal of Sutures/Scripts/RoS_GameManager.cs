@@ -30,7 +30,21 @@ public class RoS_GameManager : MonoBehaviour
     [SerializeField] private GameObject antisepticSwabs;
     [SerializeField] private GameObject tray;
     [SerializeField] private GameObject steriStrips;
-    [SerializeField] private GameObject gloves;
+
+    //Highlighted objects
+    [SerializeField] private GameObject scissors_H;
+    [SerializeField] private GameObject tweezers_H;
+    [SerializeField] private GameObject antisepticSwabs_H;
+    [SerializeField] private GameObject tray_H;
+    [SerializeField] private GameObject steriStrips_H;
+
+    //Labels
+    public GameObject scissors_Name;
+    public GameObject steri_strips_Name;
+    public GameObject antiseptic_swab_Name;
+    public GameObject tray_Name;
+    public GameObject tweezers_Name;
+
 
 
 
@@ -46,18 +60,20 @@ public class RoS_GameManager : MonoBehaviour
     {
         // Introduction
         Debug.Log("Play VO1");
+        audioSource.PlayOneShot(intro_VO[0]);
+        yield return new WaitForSeconds(intro_VO[0].length);
+        yield return new WaitForSeconds(3f);
+
         audioSource.PlayOneShot(intro_VO[1]);
         yield return new WaitForSeconds(intro_VO[1].length);
 
 
+        //Show Equipments
         audioSource.PlayOneShot(intro_VO[2]);
         yield return new WaitForSeconds(intro_VO[2].length);
-
+        yield return new WaitForSeconds(2f);
         audioSource.PlayOneShot(intro_VO[3]);
         yield return new WaitForSeconds(intro_VO[3].length);
-
-        audioSource.PlayOneShot(intro_VO[4]);
-        yield return new WaitForSeconds(intro_VO[4].length);
 
 
         //Step 1
@@ -95,18 +111,6 @@ public class RoS_GameManager : MonoBehaviour
         //Playing Animation of bed in semi-fold position and patient getting lie down on the back.
         yield return new WaitForSeconds(intro_VO[10].length);
 
-
-
-        // Step 4: Wearing Gloves
-        Debug.Log("Play VO6");
-        audioSource.PlayOneShot(intro_VO[11]);
-        //    PlayGuide(3);                           
-        // Playing Animation of transparent hands wearing gloves.
-        yield return new WaitForSeconds(intro_VO[11].length);
-        gloves.GetComponent<BoxCollider>().enabled = true;
-        gloves.GetComponent<Rigidbody>().useGravity = true;
-
-
     }
 
     // Update is called once per frame
@@ -129,7 +133,7 @@ public class RoS_GameManager : MonoBehaviour
         //Disable all Interactables/Grabbable property of GrabbableObjects, except 1st
 
         // 1) Disable all Box Colliders to avoid getting grabbed.
-        gloves.GetComponent<BoxCollider>().enabled = false;
+       // gloves.GetComponent<BoxCollider>().enabled = false;
         scissors.GetComponent<BoxCollider>().enabled = false;
         tweezers.GetComponent<BoxCollider>().enabled = false;
         steriStrips.GetComponent<BoxCollider>().enabled = false;
@@ -138,7 +142,7 @@ public class RoS_GameManager : MonoBehaviour
 
 
         // 2) Disable all Gravity since Box Colliders are off
-        gloves.GetComponent<Rigidbody>().useGravity = false;
+        //gloves.GetComponent<Rigidbody>().useGravity = false;
         scissors.GetComponent<Rigidbody>().useGravity = false;
         tweezers.GetComponent<Rigidbody>().useGravity = false;
         steriStrips.GetComponent<Rigidbody>().useGravity = false;
