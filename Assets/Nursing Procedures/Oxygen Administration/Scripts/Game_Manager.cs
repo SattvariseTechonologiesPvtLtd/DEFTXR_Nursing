@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OAGAMEMANAGER : MonoBehaviour
+public class Game_Manager : MonoBehaviour
 {
     // list of the audioclips required
     [SerializeField]
@@ -59,5 +59,35 @@ public class OAGAMEMANAGER : MonoBehaviour
     void Update()
     {
         
+    }
+
+    IEnumerator Introduction()
+    {
+        // Introduction
+        Debug.Log("playing vo1");
+        audioSource.PlayOneShot(intro_VO[0]);
+        yield return new WaitForSeconds(intro_VO[0].length);
+
+        audioSource.PlayOneShot(intro_VO[1]);
+        yield return new WaitForSeconds(intro_VO[1].length);
+
+        Debug.Log("playing vo2");
+        audioSource.PlayOneShot(intro_VO[2]);
+        yield return new WaitForSeconds(intro_VO[2].length);
+        yield return new WaitForSeconds(4f);
+
+        audioSource.PlayOneShot(intro_VO[3]);
+        yield return new WaitForSeconds(intro_VO[3].length);
+        yield return new WaitForSeconds(3f);
+
+        //Show Apparatus
+        audioSource.PlayOneShot(intro_VO[4]);
+        yield return new WaitForSeconds(intro_VO[4].length);
+        yield return new WaitForSeconds(4f);
+
+        
+
+        
+
     }
 }

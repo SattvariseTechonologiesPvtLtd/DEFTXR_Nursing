@@ -7468,7 +7468,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -8241,7 +8241,7 @@ PrefabInstance:
     - target: {fileID: 98703919605503838, guid: 65ee4a6505110aa4491be9e11ee91242,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.394
+      value: 1.416
       objectReference: {fileID: 0}
     - target: {fileID: 98703919605503838, guid: 65ee4a6505110aa4491be9e11ee91242,
         type: 3}
@@ -8251,7 +8251,7 @@ PrefabInstance:
     - target: {fileID: 98703919605503838, guid: 65ee4a6505110aa4491be9e11ee91242,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.27
+      value: -2.2993
       objectReference: {fileID: 0}
     - target: {fileID: 98703919605503838, guid: 65ee4a6505110aa4491be9e11ee91242,
         type: 3}
