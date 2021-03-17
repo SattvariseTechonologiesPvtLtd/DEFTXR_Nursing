@@ -49,7 +49,7 @@ namespace HandsOnVR
         public GameObject tweezers_Name;
 
         public Text debugText;
-
+        private Hand grabbedBy;
 
         // Start is called before the first frame update
         void Start()
@@ -89,6 +89,7 @@ namespace HandsOnVR
             Debug.Log("Play Patient Wounds");
             audioSource.PlayOneShot(intro_VO[4]);
             yield return new WaitForSeconds(intro_VO[4].length);
+           
 
            /* Debug.Log("Play VO3");
             audioSource.PlayOneShot(intro_VO[6]);
@@ -123,13 +124,12 @@ namespace HandsOnVR
         // Update is called once per frame
         void Update()
         {
-            debugText.text = "Inside update";
-            if (tray.GetComponent<Grabbable>().GrabbedBy == true && ActionsCompleted[1] == false)
+            debugText.text = "Inside update function";
+            if (tray.GetComponent<GrabAttacher>().GrabbedBody != null )
             {
                 debugText.text = "Inside if";
             }
         }
-
 
         void InitializeDefaultData()
         {
@@ -148,7 +148,7 @@ namespace HandsOnVR
             scissors.GetComponent<BoxCollider>().enabled = false;
             tweezers.GetComponent<BoxCollider>().enabled = false;
             steriStrips.GetComponent<BoxCollider>().enabled = false;
-            tray.GetComponent<BoxCollider>().enabled = true;
+            tray.GetComponent<BoxCollider>().enabled = false;
             antisepticSwabs.GetComponent<BoxCollider>().enabled = false;
 
 
@@ -157,8 +157,22 @@ namespace HandsOnVR
             scissors.GetComponent<Rigidbody>().useGravity = false;
             tweezers.GetComponent<Rigidbody>().useGravity = false;
             steriStrips.GetComponent<Rigidbody>().useGravity = false;
-            tray.GetComponent<Rigidbody>().useGravity = true;
+            tray.GetComponent<Rigidbody>().useGravity = false;
             antisepticSwabs.GetComponent<Rigidbody>().useGravity = false;
+        }
+
+        IEnumerator Step1()
+        {
+            tray_H.SetActive(true);
+            tray.SetActive(false);
+            audioSource.PlayOneShot(intro_VO[5]);
+            yield return new WaitForSeconds(intro_VO[5].length);
+            yield return new WaitForSeconds(10f);
+        }
+
+        public void grabSwab()
+        {
+            StartCoroutine(Step1());
         }
     }
 }
