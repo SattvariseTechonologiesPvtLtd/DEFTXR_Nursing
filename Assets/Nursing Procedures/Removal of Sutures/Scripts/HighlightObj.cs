@@ -12,8 +12,7 @@ public class HighlightObj : MonoBehaviour
             Debug.Log("workinggggg");
 
             myGrabbaleObj.SetActive(true);
-            this.gameObject.SetActive(false);
-            
+            this.gameObject.SetActive(false);    
         }
         else
         {

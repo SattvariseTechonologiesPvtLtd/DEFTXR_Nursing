@@ -89,7 +89,16 @@ namespace HandsOnVR
             Debug.Log("Play Patient Wounds");
             audioSource.PlayOneShot(intro_VO[4]);
             yield return new WaitForSeconds(intro_VO[4].length);
-           
+            yield return new WaitForSeconds(4f);
+
+            //Step 2. Grab the Antiseptic Swab
+            audioSource.PlayOneShot(intro_VO[5]);
+            yield return new WaitForSeconds(intro_VO[5].length);
+            Guides[0].SetActive(true);
+            antisepticSwabs.SetActive(false);
+            antisepticSwabs_H.SetActive(true);
+            antisepticSwabs.GetComponent<Rigidbody>().useGravity = true;
+            antisepticSwabs.GetComponent<BoxCollider>().enabled = true;
 
            /* Debug.Log("Play VO3");
             audioSource.PlayOneShot(intro_VO[6]);
@@ -163,15 +172,14 @@ namespace HandsOnVR
 
         IEnumerator Step1()
         {
-            tray_H.SetActive(true);
-            tray.SetActive(false);
-            audioSource.PlayOneShot(intro_VO[5]);
-            yield return new WaitForSeconds(intro_VO[5].length);
+            audioSource.PlayOneShot(intro_VO[6]);
+            yield return new WaitForSeconds(intro_VO[6].length);
             yield return new WaitForSeconds(10f);
         }
 
         public void grabSwab()
         {
+            //After the swab is grabbed
             StartCoroutine(Step1());
         }
     }
