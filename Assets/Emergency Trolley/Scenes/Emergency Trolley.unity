@@ -2550,6 +2550,7 @@ GameObject:
   - component: {fileID: 233529981}
   - component: {fileID: 233529984}
   - component: {fileID: 233529983}
+  - component: {fileID: 233529985}
   m_Layer: 0
   m_Name: Drawer2
   m_TagString: Untagged
@@ -2565,7 +2566,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233529979}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.019172153, z: 0.00015254974}
+  m_LocalPosition: {x: 0, y: 0.01917215, z: 0.00015254974}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 226048671}
@@ -2652,6 +2653,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &233529985
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233529979}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bbc9919f99fa2f94d9e7487b02ffb456, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &236902968
 GameObject:
   m_ObjectHideFlags: 0
@@ -3976,7 +3996,6 @@ MonoBehaviour:
   _gazeRadius: 0.4
   _rightHandController: {fileID: 147323192}
   _leftHandController: {fileID: 1969312019}
-  _head: {fileID: 0}
 --- !u!1 &358427097
 GameObject:
   m_ObjectHideFlags: 0
@@ -8399,7 +8418,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697764465}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aebc800c146508e49a56e27c958d1a1d, type: 3}
   m_Name: 
@@ -11305,7 +11324,6 @@ GameObject:
   - component: {fileID: 972108099}
   - component: {fileID: 972108098}
   - component: {fileID: 972108100}
-  - component: {fileID: 972108101}
   m_Layer: 0
   m_Name: Drawer6
   m_TagString: Untagged
@@ -11427,19 +11445,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &972108101
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972108094}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.09768289, y: 0.019182345, z: 0.024865106}
-  m_Center: {x: -0.00009817833, y: 0.00940228, z: 0.19433856}
 --- !u!1 &977517265
 GameObject:
   m_ObjectHideFlags: 0
@@ -12581,6 +12586,7 @@ GameObject:
   - component: {fileID: 1078562416}
   - component: {fileID: 1078562419}
   - component: {fileID: 1078562418}
+  - component: {fileID: 1078562420}
   m_Layer: 0
   m_Name: Drawer1
   m_TagString: Untagged
@@ -12596,7 +12602,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078562414}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.14037901, z: -0}
+  m_LocalPosition: {x: 0, y: 0.140379, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 908248418}
@@ -12683,6 +12689,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &1078562420
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078562414}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2f3a71c1ed80c04d88cd63133f4f2ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1088360718
 GameObject:
   m_ObjectHideFlags: 0
@@ -13295,7 +13320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5497e3d3685caf4a954a051bfe29b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _grabPose: 
+  _grabPose: GrabFist
   _proximityPose: 
   _orientToHand: 1
   _secondGrabBehavior: 1
@@ -24700,6 +24725,7 @@ GameObject:
   - component: {fileID: 2018970088}
   - component: {fileID: 2018970091}
   - component: {fileID: 2018970090}
+  - component: {fileID: 2018970092}
   m_Layer: 0
   m_Name: Drawer3
   m_TagString: Untagged
@@ -24715,7 +24741,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018970086}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.10187517, z: 0.00015254974}
+  m_LocalPosition: {x: 0, y: -0.1018752, z: 0.00015254974}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1938729062}
@@ -24802,6 +24828,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &2018970092
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018970086}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7d3e7b59a6beb5b46beb614d44050214, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2030152637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28302,7 +28347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124673143}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.22312768, z: 0.00015254974}
+  m_LocalPosition: {x: 0, y: -0.2231277, z: 0.00015254974}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 101509330}
