@@ -6,7 +6,7 @@ public class FlushBagFinalTube_Collision : MonoBehaviour
 {
 
 
-    private void OnTriggerEnter(Collider col)
+    public void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.name == "Saline_static_tube")
         {

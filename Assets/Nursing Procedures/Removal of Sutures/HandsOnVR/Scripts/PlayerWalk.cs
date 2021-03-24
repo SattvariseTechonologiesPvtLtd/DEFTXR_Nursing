@@ -25,7 +25,7 @@ namespace HandsOnVR
 		[SerializeField] private IHandController _rightHand;
 		[SerializeField] private GameObject _leftHandController;
 		[SerializeField] private IHandController _leftHand;
-		[SerializeField] private Transform _head;
+		//[SerializeField] private Transform _head;
 
 		private Transform _xform;
 		private Transform _right;
@@ -73,20 +73,20 @@ namespace HandsOnVR
 			_velocity = Mathf.Lerp(_velocity, speed * sign,  _smoothT);
 
 			// If either hand is beyond a specified radius from the head (on the XZ-plane) that hand's direction is used, otherwise the head's direction is used.
-			var leftDeltaXZ = (_leftHand.Position - _head.position);
+			/*var leftDeltaXZ = (_leftHand.Position - _head.position);
 			leftDeltaXZ.y = 0f;
 			var rightDeltaXZ = (_rightHand.Position - _head.position);
 			rightDeltaXZ.y = 0f;
 			var leftPointing = leftDeltaXZ.sqrMagnitude > (_gazeRadius * _gazeRadius) && absL > 0.25f;
-			var rightPointing = rightDeltaXZ.sqrMagnitude > (_gazeRadius * _gazeRadius) && absR > 0.25f;
+			var rightPointing = rightDeltaXZ.sqrMagnitude > (_gazeRadius * _gazeRadius) && absR > 0.25f;*/
 
 			// Change between gaze and controller direction? 
 			//if (absL < 0.1f && absR < 0.1f)
-			{
+			/*{
 				_usingGaze = !leftPointing && !rightPointing;
-			}
+			}*/
 			
-			if (_usingGaze)
+			/*if (_usingGaze)
 			{
 				// Gaze controls direction
 				var headAngle = _head.eulerAngles.y * Mathf.Deg2Rad;
@@ -98,7 +98,7 @@ namespace HandsOnVR
 				_direction = (_left.forward * absL + _right.forward * absR);
 				_direction.y = 0f;
 				_direction.Normalize();
-			}
+			}*/
 
 			_xform.position += _direction * (_velocity * Time.fixedDeltaTime);
 
