@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Flow: InitializeDefaultData -> Introduction -> Update(GrabCheck) -> Step1 -> WoundAntiseptic1 -> Step2 -> 
+// -> DustbinSwab -> Step3 -> Update(GrabCheck) -> TrayReplace -> Step4 -> Update(GrabCheck) -> Step5 ->
+// -> SutureTweezer -> Step6 -> SutureCut -> Step7 -> Update(GrabCheck) -> Step8 -> SutureTweezer
+
 public class RS_GameManager : MonoBehaviour
 {
     public static RS_GameManager Instance;
@@ -31,19 +35,31 @@ public class RS_GameManager : MonoBehaviour
     //Equipments
     [SerializeField] private GameObject scissors;
     [SerializeField] private GameObject tweezers;
-    [SerializeField] private GameObject antisepticSwabs;
+    [SerializeField] private GameObject antisepticSwabs1;
+    [SerializeField] private GameObject antisepticSwabs2;
+    [SerializeField] private GameObject antisepticSwabs3;
     [SerializeField] private GameObject tray;
     [SerializeField] private GameObject tray1;
-    [SerializeField] private GameObject steriStrips;
+    [SerializeField] private GameObject steriStrip1;
+    [SerializeField] private GameObject steriStrip2;
+    [SerializeField] private GameObject steriStrip3;
+    [SerializeField] private GameObject steriStrip4;
+    [SerializeField] private GameObject steriStrip5;
     [SerializeField] private GameObject dustbin;
 
     //Highlighted equipments
     [SerializeField] private GameObject scissors_H;
     [SerializeField] private GameObject tweezers_H;
-    [SerializeField] private GameObject antisepticSwabs_H;
+    [SerializeField] private GameObject antisepticSwabs1_H;
+    [SerializeField] private GameObject antisepticSwabs2_H;
+    [SerializeField] private GameObject antisepticSwabs3_H;
     [SerializeField] private GameObject tray_H;
     [SerializeField] private GameObject tray1_H;
-    [SerializeField] private GameObject steriStrips_H;
+    [SerializeField] private GameObject steriStrip1_H;
+    [SerializeField] private GameObject steriStrip2_H;
+    [SerializeField] private GameObject steriStrip3_H;
+    [SerializeField] private GameObject steriStrip4_H;
+    [SerializeField] private GameObject steriStrip5_H;
     [SerializeField] private GameObject dustbin_H;
 
     //Labels
@@ -56,6 +72,14 @@ public class RS_GameManager : MonoBehaviour
 
     public Text debugText;
     //private Hand grabbedBy;
+
+    //Original Positions and Rotation
+    private Vector3 scissorPos;
+    private Vector3 tweezersPos;
+    private Quaternion scissorRotate;
+    private Quaternion tweezerRotate;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -102,10 +126,10 @@ public class RS_GameManager : MonoBehaviour
         audioSource.PlayOneShot(intro_VO[6]);
         yield return new WaitForSeconds(intro_VO[6].length);
         Guides[0].SetActive(true);
-        antisepticSwabs.SetActive(false);
-        antisepticSwabs_H.SetActive(true);
-        antisepticSwabs.GetComponent<Rigidbody>().useGravity = true;
-        antisepticSwabs.GetComponent<BoxCollider>().enabled = true;
+        antisepticSwabs1.SetActive(false);
+        antisepticSwabs1_H.SetActive(true);
+        antisepticSwabs1.GetComponent<Rigidbody>().useGravity = true;
+        antisepticSwabs1.GetComponent<BoxCollider>().enabled = true;
 
         /* Debug.Log("Play VO3");
          audioSource.PlayOneShot(intro_VO[6]);
@@ -131,14 +155,29 @@ public class RS_GameManager : MonoBehaviour
             debugText.text = "Inside if";
         }*/
 
-        if (/*swab.isGrabbed == true &&*/ ActionsCompleted[0] == false)
+        if (/*swab1.isGrabbed == true &&*/ ActionsCompleted[0] == false)
         {
             StartCoroutine(Step1());
         }
 
-        if(/*tray.isGrabbed == true &&*/ ActionsCompleted[0] == true && ActionsCompleted[1] == false)
+        if (/*tray.isGrabbed == true &&*/ ActionsCompleted[0] == true && ActionsCompleted[1] == false)
         {
             tray1_H.SetActive(true);
+        }
+
+        if (/*tweezers.isGrabbed == true && scissor.isGrabbed == true &&*/ ActionsCompleted[1] == true && ActionsCompleted[2] == false)
+        {
+            StartCoroutine(Step5());
+        }
+
+        if (/*tweezers.isGrabbed == true && scissor.isGrabbed == true &&*/ ActionsCompleted[2] == true && ActionsCompleted[3] == false)
+        {
+            StartCoroutine(Step8());
+        }
+
+        if(/*steristrip.isGrabbed == true &&*/ ActionsCompleted[3] == true && ActionsCompleted[4] == false)
+        {
+            StartCoroutine(Step12());
         }
     }
 
@@ -157,19 +196,47 @@ public class RS_GameManager : MonoBehaviour
         // 1) Disable all Box Colliders to avoid getting grabbed.
         scissors.GetComponent<BoxCollider>().enabled = false;
         tweezers.GetComponent<BoxCollider>().enabled = false;
-        steriStrips.GetComponent<BoxCollider>().enabled = false;
+        steriStrip1.GetComponent<BoxCollider>().enabled = false;
+        steriStrip2.GetComponent<BoxCollider>().enabled = false;
+        steriStrip3.GetComponent<BoxCollider>().enabled = false;
+        steriStrip4.GetComponent<BoxCollider>().enabled = false;
+        steriStrip5.GetComponent<BoxCollider>().enabled = false;
         tray.GetComponent<BoxCollider>().enabled = false;
-        antisepticSwabs.GetComponent<BoxCollider>().enabled = false;
+        antisepticSwabs1.GetComponent<BoxCollider>().enabled = false;
+        antisepticSwabs2.GetComponent<BoxCollider>().enabled = false;
+        antisepticSwabs3.GetComponent<BoxCollider>().enabled = false;
         dustbin_H.GetComponent<BoxCollider>().enabled = false;
 
 
         // 2) Disable all Gravity since Box Colliders are off
         scissors.GetComponent<Rigidbody>().useGravity = false;
         tweezers.GetComponent<Rigidbody>().useGravity = false;
-        steriStrips.GetComponent<Rigidbody>().useGravity = false;
+        steriStrip1.GetComponent<Rigidbody>().useGravity = false;
+        steriStrip2.GetComponent<Rigidbody>().useGravity = false;
+        steriStrip3.GetComponent<Rigidbody>().useGravity = false;
+        steriStrip4.GetComponent<Rigidbody>().useGravity = false;
+        steriStrip5.GetComponent<Rigidbody>().useGravity = false;
         tray.GetComponent<Rigidbody>().useGravity = false;
-        antisepticSwabs.GetComponent<Rigidbody>().useGravity = false;
+        antisepticSwabs1.GetComponent<Rigidbody>().useGravity = false;
+        antisepticSwabs2.GetComponent<Rigidbody>().useGravity = false;
+        antisepticSwabs3.GetComponent<Rigidbody>().useGravity = false;
 
+        //Original Pos and Rotate
+        scissorPos = scissors.gameObject.transform.position;
+        tweezersPos = tweezers.gameObject.transform.position;
+        scissorRotate = scissors.gameObject.transform.rotation;
+        tweezerRotate = tweezers.gameObject.transform.rotation;
+    }
+
+    public void ScissorTweezerPos()
+    {
+        // Scissor and tweezer back to original position
+        scissors.gameObject.transform.position = scissorPos;
+        tweezers.gameObject.transform.position = tweezersPos;
+
+        //original Rotation
+        scissors.gameObject.transform.rotation = scissorRotate;
+        tweezers.gameObject.transform.rotation = tweezerRotate;
     }
 
     public IEnumerator Step1()
@@ -182,7 +249,7 @@ public class RS_GameManager : MonoBehaviour
 
     public IEnumerator Step2()
     {
-        //Discard the swab into Dustbin
+        //Discard the swab1 into Dustbin
         dustbin_H.SetActive(true);
         dustbin_H.GetComponent<BoxCollider>().enabled = true;
         audioSource.PlayOneShot(intro_VO[8]);
@@ -194,9 +261,9 @@ public class RS_GameManager : MonoBehaviour
     public IEnumerator Step3()
     {
         //Swab Disappear after Collision
-        antisepticSwabs.SetActive(false);
-        antisepticSwabs.GetComponent<BoxCollider>().enabled = false;
-        antisepticSwabs.GetComponent<Rigidbody>().useGravity = false;
+        antisepticSwabs1.SetActive(false);
+        antisepticSwabs1.GetComponent<BoxCollider>().enabled = false;
+        antisepticSwabs1.GetComponent<Rigidbody>().useGravity = false;
         dustbin_H.SetActive(false);
         dustbin_H.GetComponent<BoxCollider>().enabled = false;
         yield return new WaitForSeconds(5f);
@@ -215,12 +282,180 @@ public class RS_GameManager : MonoBehaviour
 
     public IEnumerator Step4()
     {
+        //Tray Replace 
+        ActionsCompleted[1] = true;
         tray.SetActive(false);
+        tray.GetComponent<BoxCollider>().enabled = false;
+        tray.GetComponent<Rigidbody>().useGravity = false;
         //Tray Grab END
         tray1.SetActive(true);
         tray1_H.SetActive(false);
         audioSource.PlayOneShot(intro_VO[11]);
         yield return new WaitForSeconds(intro_VO[11].length);
+        yield return new WaitForSeconds(3f);
+
+        tweezers_H.SetActive(true);
+        tweezers.GetComponent<BoxCollider>().enabled = true;
+        tweezers.GetComponent<Rigidbody>().useGravity = true;
+        scissors_H.SetActive(true);
+        scissors.GetComponent<BoxCollider>().enabled = true;
+        scissors.GetComponent<Rigidbody>().useGravity = true;
+        audioSource.PlayOneShot(intro_VO[12]);
+        yield return new WaitForSeconds(intro_VO[12].length);
+        yield return new WaitForSeconds(3f);
+    }
+
+    public IEnumerator Step5()
+    {
+        // Highlight 2nd Suture and turn on its Box Collider
+        audioSource.PlayOneShot(intro_VO[13]);
+        yield return new WaitForSeconds(intro_VO[13].length);
+        yield return new WaitForSeconds(3f);
+    }
+
+    public IEnumerator Step6()
+    {
+        //Tweezers Grab End
+        tweezers_H.SetActive(false);
+        tweezers.GetComponent<BoxCollider>().enabled = false;
+        tweezers.GetComponent<Rigidbody>().useGravity = false;
+
+        audioSource.PlayOneShot(intro_VO[14]);
+        //Play Suture Grab and Pull Animation
+        yield return new WaitForSeconds(intro_VO[14].length);
+        yield return new WaitForSeconds(3f);
+        //Tweezer1_H SetActive
+
+        audioSource.PlayOneShot(intro_VO[15]);
+        yield return new WaitForSeconds(intro_VO[15].length);
+        yield return new WaitForSeconds(3f);
+        //Cut Guide SetActive
+    }
+
+    public IEnumerator Step7()
+    {
+        //Scissors Grab End
+        scissors_H.SetActive(false);
+        scissors.GetComponent<BoxCollider>().enabled = false;
+        scissors.GetComponent<Rigidbody>().useGravity = false;
+        ScissorTweezerPos();
+        //Cut Guide DeActive
+        //Play Scissor cutting Suture Animation
+
+        audioSource.PlayOneShot(intro_VO[16]);
+        yield return new WaitForSeconds(intro_VO[16].length);
+        yield return new WaitForSeconds(3f);
+        //Play Arrow Guide
+        //Tweezer1_H SetActive(false)
+        //Play Tweezer Pull Animation
+
+        audioSource.PlayOneShot(intro_VO[17]);
+        yield return new WaitForSeconds(intro_VO[17].length);
+        yield return new WaitForSeconds(3f);
+        //Play Suture Drop in Tray Animation
+        //Show Suture in Tray
+
+        audioSource.PlayOneShot(intro_VO[18]);
+        yield return new WaitForSeconds(intro_VO[18].length);
+        yield return new WaitForSeconds(3f);
+
+        ActionsCompleted[2] = true;
+
+        audioSource.PlayOneShot(intro_VO[19]);
+        yield return new WaitForSeconds(intro_VO[19].length);
+        yield return new WaitForSeconds(3f);
+
+        tweezers_H.SetActive(true);
+        tweezers.GetComponent<BoxCollider>().enabled = true;
+        tweezers.GetComponent<Rigidbody>().useGravity = true;
+        scissors_H.SetActive(true);
+        scissors.GetComponent<BoxCollider>().enabled = true;
+        scissors.GetComponent<Rigidbody>().useGravity = true;
+    }
+
+    public IEnumerator Step8()
+    {
+        //Highlight 4th Suture
+        //BoxCollider On 4th Suture
+        audioSource.PlayOneShot(intro_VO[20]);
+        yield return new WaitForSeconds(intro_VO[20].length);
+        yield return new WaitForSeconds(3f);
+    }
+
+    public IEnumerator Step9()
+    {
+        //Tweezers Grab End
+        tweezers_H.SetActive(false);
+        tweezers.GetComponent<BoxCollider>().enabled = false;
+        tweezers.GetComponent<Rigidbody>().useGravity = false;
+
+
+        //Play Tweezer Grab and Pull Animation
+        audioSource.PlayOneShot(intro_VO[21]);
+        yield return new WaitForSeconds(intro_VO[21].length);
+        yield return new WaitForSeconds(3f);
+
+        //Cut Guide SetActive
+    }
+
+    public IEnumerator Step10()
+    {
+        //Scissors Grab End
+        scissors_H.SetActive(false);
+        scissors.GetComponent<BoxCollider>().enabled = false;
+        scissors.GetComponent<Rigidbody>().useGravity = false;
+        ScissorTweezerPos();
+        //Cut Guide DeActive
+        //Play Scissor cutting Suture Animation
+        yield return new WaitForSeconds(3f);
+
+        //Play Arrow Guide
+        //Tweezer1_H SetActive(false)
+        //Play Tweezer Pull Animation
+
+        //Play Suture Drop in Tray Animation
+        //Show Suture in Tray
+
+        ActionsCompleted[3] = true;
+
+        audioSource.PlayOneShot(intro_VO[22]);
+        yield return new WaitForSeconds(intro_VO[22].length);
+        yield return new WaitForSeconds(3f);
+
+        antisepticSwabs2_H.SetActive(true);
+        antisepticSwabs2.GetComponent<BoxCollider>().enabled = true;
+        antisepticSwabs2.GetComponent<Rigidbody>().useGravity = true;
+    }
+
+    public IEnumerator Step11()
+    {
+        //Play Antiseptic Apply Animation
+        audioSource.PlayOneShot(intro_VO[23]);
+        yield return new WaitForSeconds(intro_VO[23].length);
+        yield return new WaitForSeconds(3f);
+
+        audioSource.PlayOneShot(intro_VO[24]);
+        yield return new WaitForSeconds(intro_VO[24].length);
+        yield return new WaitForSeconds(3f);
+
+        steriStrip1_H.SetActive(true);
+        steriStrip1.GetComponent<BoxCollider>().enabled = true;
+        steriStrip1.GetComponent<Rigidbody>().useGravity = true;
+
+    }
+
+    public IEnumerator Step12()
+    {
+        //Steri Strip Guide Set Active
+        yield return new WaitForSeconds(3f);
+    }
+
+    public IEnumerator Step13()
+    {
+        //Play Steri Strip Apply Animation
+        steriStrip1.GetComponent<BoxCollider>().enabled = false;
+        steriStrip1.GetComponent<Rigidbody>().useGravity = false;
+        yield return new WaitForSeconds(3f);
     }
 }
 
