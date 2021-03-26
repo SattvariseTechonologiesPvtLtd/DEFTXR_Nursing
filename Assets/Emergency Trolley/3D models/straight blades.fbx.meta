@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 67006f91950cfb94c99b2958fdd3071f
+guid: 218bd7a597689664b9701abc6b195602
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: blade_camera_M
-    second: {fileID: 2100000, guid: abc45bea81a30d140901f376271df2d3, type: 2}
+      name: lambert1
+    second: {fileID: 2100000, guid: 0b0fe612d5b38bb4bb81b7ca359f2875, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: transparent_blade_M
-    second: {fileID: 2100000, guid: 833ca061021c30f4da648cb9d9c75a94, type: 2}
+      name: straight_blades_M
+    second: {fileID: 2100000, guid: 242e895d02f28994dbdc61bb421b7edb, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 67006f91950cfb94c99b2958fdd3071f
+guid: d804100077c11844bbf075d14fcc5ead
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
@@ -7,13 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: blade_camera_M
-    second: {fileID: 2100000, guid: abc45bea81a30d140901f376271df2d3, type: 2}
+      name: Pentax_disposable_blade_M
+    second: {fileID: 2100000, guid: 0c5dfe7d850575e428275c668f41e7db, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: transparent_blade_M
-    second: {fileID: 2100000, guid: 833ca061021c30f4da648cb9d9c75a94, type: 2}
+      name: Pentax_disposable_blade_M1
+    second: {fileID: 2100000, guid: b21f7bbbe00ce1547986b92a2b5a392c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pentax_disposable_blade_M2
+    second: {fileID: 2100000, guid: ae0494a2b6663cd4e8085982c2f0d0fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pentax_disposable_blade_M3
+    second: {fileID: 2100000, guid: 9e4a73bb403001b4b902efdeaad86147, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
