@@ -4,16 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class ScissorCut1 : MonoBehaviour
+public class WoundAntiseptic1 : MonoBehaviour
 {
     public void OnTriggerEnter(Collider col)
     {
-        if (String.Compare(col.gameObject.name, "Scissor") == 0)
-        {
-            StartCoroutine(RS_GameManager.Instance.Step7());
+        if (String.Compare(col.gameObject.name, "Antiseptic swab") == 0)
+        { 
             Debug.Log("Collided");
+            //Play Antiseptic Apply Animation 
+            StartCoroutine(RS_GameManager.Instance.Step2());
         }
-        
+
         Debug.Log("Not Collided with ");
+
     }
+
 }

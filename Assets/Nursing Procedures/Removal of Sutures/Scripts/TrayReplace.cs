@@ -4,16 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class ScissorCut1 : MonoBehaviour
+public class TrayReplace : MonoBehaviour
 {
     public void OnTriggerEnter(Collider col)
     {
-        if (String.Compare(col.gameObject.name, "Scissor") == 0)
+        if (String.Compare(col.gameObject.name, "Tray") == 0)
         {
-            StartCoroutine(RS_GameManager.Instance.Step7());
+            StartCoroutine(RS_GameManager.Instance.Step4());
             Debug.Log("Collided");
         }
-        
         Debug.Log("Not Collided with ");
     }
 }
