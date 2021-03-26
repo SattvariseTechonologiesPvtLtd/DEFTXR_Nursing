@@ -60,7 +60,7 @@ public class RT_GameManager : MonoBehaviour
     [SerializeField]
     private GameObject smallTape_Highlighted;
 
-
+   
 
     public GameObject character_animation;
     public GameObject bed_animation;
@@ -78,7 +78,7 @@ public class RT_GameManager : MonoBehaviour
 
     private void Start()
     {
-
+        
         InitializeDefaultData();
 
         StartCoroutine(Introduction());
@@ -89,7 +89,7 @@ public class RT_GameManager : MonoBehaviour
     {
         // Introduction
         Debug.Log("playing vo1");
-        audioSource.PlayOneShot(intro_VO[0]);
+        audioSource.PlayOneShot(intro_VO[0]); 
         yield return new WaitForSeconds(intro_VO[0].length);
 
         audioSource.PlayOneShot(intro_VO[1]);

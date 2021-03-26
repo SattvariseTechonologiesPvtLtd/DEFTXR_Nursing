@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class OA_GameManager : MonoBehaviour
 {
+    public static OA_GameManager Inst;
+    public void Awake()
+    {
+        Inst = this;
+    }
 
     // list of the audioclips required
     [SerializeField]
@@ -42,8 +47,24 @@ public class OA_GameManager : MonoBehaviour
     private GameObject NonRebreatherMask;
     [SerializeField]
     private GameObject FaceTent;
+    [SerializeField]
+    private GameObject NonRebreathermask_HA;
+    [SerializeField]
+    private GameObject NonRebreathermaskHA;
+    [SerializeField] 
+    private GameObject NonRebreathermask_H;
+    [SerializeField]
+    private GameObject OxygenCylinder_H;
+    [SerializeField]
+    private GameObject TranstrachealCatheter_H;
+    [SerializeField]
+    private GameObject VenturiMask_H;
+    [SerializeField]
+    private GameObject NasalCanula_H;
+    [SerializeField]
+    private GameObject OxygenHood_H;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,9 +79,11 @@ public class OA_GameManager : MonoBehaviour
         Debug.Log("playing vo1");
         audioSource.PlayOneShot(intro_VO[0]);
         yield return new WaitForSeconds(intro_VO[0].length);
+        yield return new WaitForSeconds(2f);
 
         audioSource.PlayOneShot(intro_VO[1]);
         yield return new WaitForSeconds(intro_VO[1].length);
+        yield return new WaitForSeconds(1f);
 
         Debug.Log("playing vo2");
         audioSource.PlayOneShot(intro_VO[2]);
@@ -95,10 +118,7 @@ public class OA_GameManager : MonoBehaviour
         // Disable all models
         //patient.SetActive(false);
 
-        for (int i = 0; i < Guides.Count; i++)
-        {
-            Guides[i].SetActive(false);
-        }
+        
 
         // 1) Disable all Box Colliders to avoid getting grabbed.
         OxygenCylinder.GetComponent<BoxCollider>().enabled = false;
@@ -118,6 +138,13 @@ public class OA_GameManager : MonoBehaviour
 
 
 
+
+    }
+    IEnumerator Step1()
+    {
+        // STEP 1 Pick Nasogastric Tube
+
+        yield return new WaitForSeconds(3f);
 
     }
 
