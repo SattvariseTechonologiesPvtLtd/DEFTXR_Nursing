@@ -108,7 +108,6 @@ public class BT_GameManager : MonoBehaviour
     }
 
     
-
     public void cannulaGrab()
     {
         equipmentLabels.Instance.CannulaIV_Name.SetActive(false);
