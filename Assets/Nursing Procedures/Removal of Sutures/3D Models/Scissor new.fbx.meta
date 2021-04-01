@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Scissor_new_M
-    second: {fileID: 2100000, guid: 24b1e4b7aa528c34fb66cdf0a3c0185e, type: 2}
+    second: {fileID: 2100000, guid: 0af82252abf583d4ea116c542d956b4f, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
