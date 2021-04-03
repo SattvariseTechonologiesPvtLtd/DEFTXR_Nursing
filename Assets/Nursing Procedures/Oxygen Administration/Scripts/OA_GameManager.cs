@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -63,6 +63,11 @@ public class OA_GameManager : MonoBehaviour
     private GameObject NasalCanula_H;
     [SerializeField]
     private GameObject OxygenHood_H;
+    [SerializeField]
+    private GameObject Regulator;
+    [SerializeField]
+    private GameObject Oxygencylinderkey;
+
 
 
     // Start is called before the first frame update
