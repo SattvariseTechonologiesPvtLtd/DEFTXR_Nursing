@@ -88,6 +88,14 @@ public class RS_GameManager : MonoBehaviour
     private bool swab2Check = false;
     private bool strip2Check = false;
 
+    //Wound Highlight Arrows
+    public GameObject Arrow1;
+    public GameObject Arrow2;
+    public GameObject Arrow3;
+    public GameObject Arrow4;
+    public GameObject Arrow5;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -124,10 +132,20 @@ public class RS_GameManager : MonoBehaviour
         //Step 1: Show patient wounds
         Debug.Log("Play Patient Wounds");
         //Highlight Patient Wounds here
+        Arrow1.SetActive(true);
+        Arrow2.SetActive(true);
+        Arrow3.SetActive(true);
+        Arrow4.SetActive(true);
+        Arrow5.SetActive(true);
         audioSource.PlayOneShot(intro_VO[5]);
         yield return new WaitForSeconds(intro_VO[5].length);
         yield return new WaitForSeconds(4f);
         //Highlight Wound OFF
+        Arrow1.SetActive(false);
+        Arrow2.SetActive(false);
+        Arrow3.SetActive(false);
+        Arrow4.SetActive(false);
+        Arrow5.SetActive(false);
 
         //Step 2. Grab the Antiseptic Swab
         audioSource.PlayOneShot(intro_VO[6]);
@@ -297,7 +315,7 @@ public class RS_GameManager : MonoBehaviour
         audioSource.PlayOneShot(intro_VO[7]);
         yield return new WaitForSeconds(intro_VO[7].length);
         yield return new WaitForSeconds(5f);
-        //Highlight Wound
+        //Highlight All Suture Wound
     }
 
     public IEnumerator Step2()
@@ -361,6 +379,7 @@ public class RS_GameManager : MonoBehaviour
     public IEnumerator Step5()
     {
         // Highlight 2nd Suture and turn on its Box Collider
+        Arrow2.SetActive(true);
         audioSource.PlayOneShot(intro_VO[13]);
         yield return new WaitForSeconds(intro_VO[13].length);
         yield return new WaitForSeconds(3f);
@@ -372,6 +391,7 @@ public class RS_GameManager : MonoBehaviour
         tweezers_H.SetActive(false);
         tweezers.GetComponent<BoxCollider>().enabled = false;
         tweezers.GetComponent<Rigidbody>().useGravity = false;
+        Arrow2.SetActive(false);
 
         audioSource.PlayOneShot(intro_VO[14]);
         //Play Suture Grab and Pull Animation
@@ -398,7 +418,7 @@ public class RS_GameManager : MonoBehaviour
         audioSource.PlayOneShot(intro_VO[16]);
         yield return new WaitForSeconds(intro_VO[16].length);
         yield return new WaitForSeconds(3f);
-        //Play Arrow Guide
+        //Play Pull Guide
         //Tweezer1_H SetActive(false)
         //Play Tweezer Pull Animation
 
@@ -429,6 +449,8 @@ public class RS_GameManager : MonoBehaviour
     public IEnumerator Step8()
     {
         //Highlight 4th Suture
+        Arrow4.SetActive(true);
+
         //BoxCollider On 4th Suture
         audioSource.PlayOneShot(intro_VO[20]);
         yield return new WaitForSeconds(intro_VO[20].length);
@@ -441,7 +463,7 @@ public class RS_GameManager : MonoBehaviour
         tweezers_H.SetActive(false);
         tweezers.GetComponent<BoxCollider>().enabled = false;
         tweezers.GetComponent<Rigidbody>().useGravity = false;
-
+        Arrow4.SetActive(false);
 
         //Play Tweezer Grab and Pull Animation
         audioSource.PlayOneShot(intro_VO[21]);
@@ -462,7 +484,7 @@ public class RS_GameManager : MonoBehaviour
         //Play Scissor cutting Suture Animation
         yield return new WaitForSeconds(3f);
 
-        //Play Arrow Guide
+        //Play Pull Guide
         //Tweezer1_H SetActive(false)
         //Play Tweezer Pull Animation
 
@@ -501,7 +523,7 @@ public class RS_GameManager : MonoBehaviour
         audioSource.PlayOneShot(intro_VO[24]);
         yield return new WaitForSeconds(intro_VO[24].length);
         yield return new WaitForSeconds(3f);
-
+        //Apply Steri Strips
         steriStrip1_H.SetActive(true);
         steriStrip1.GetComponent<BoxCollider>().enabled = true;
         steriStrip1.GetComponent<Rigidbody>().useGravity = true;
@@ -560,6 +582,7 @@ public class RS_GameManager : MonoBehaviour
         yield return new WaitForSeconds(intro_VO[26].length);
         yield return new WaitForSeconds(3f);
         //Highlight 1st Suture
+        Arrow1.SetActive(true);
         //BoxCollider On
         yield return new WaitForSeconds(3f);
     }
@@ -569,6 +592,7 @@ public class RS_GameManager : MonoBehaviour
         tweezers_H.SetActive(false);
         tweezers.GetComponent<BoxCollider>().enabled = false;
         tweezers.GetComponent<Rigidbody>().useGravity = false;
+        Arrow1.SetActive(false);
         //Play Grab and Pull Suture Animation
         //SetActive CutGuide
         yield return new WaitForSeconds(3f);
@@ -584,7 +608,7 @@ public class RS_GameManager : MonoBehaviour
         //Play Cut Animation
         yield return new WaitForSeconds(3f);
 
-        //Play Arrow Guide
+        //Play Pull Guide
         //Tweezer1_H SetActive(false)
         //Play Tweezer Pull Animation
 
@@ -607,6 +631,7 @@ public class RS_GameManager : MonoBehaviour
     public IEnumerator Step17()
     {
         //Highlight 3rd Suture
+        Arrow3.SetActive(true);
         //BoxCollider On
         yield return new WaitForSeconds(3f);
     }
@@ -616,6 +641,7 @@ public class RS_GameManager : MonoBehaviour
         tweezers_H.SetActive(false);
         tweezers.GetComponent<BoxCollider>().enabled = false;
         tweezers.GetComponent<Rigidbody>().useGravity = false;
+        Arrow3.SetActive(false);
         //Play Grab and Pull Suture Animation
         //SetActive CutGuide
         yield return new WaitForSeconds(3f);
@@ -631,7 +657,7 @@ public class RS_GameManager : MonoBehaviour
         //Play Cut Animation
         yield return new WaitForSeconds(3f);
 
-        //Play Arrow Guide
+        //Play Pull Guide
         //Tweezer1_H SetActive(false)
         //Play Tweezer Pull Animation
 
@@ -651,6 +677,7 @@ public class RS_GameManager : MonoBehaviour
     public IEnumerator Step20()
     {
         //Highlight 5th Suture
+        Arrow5.SetActive(true);
         //BoxCollider On
         yield return new WaitForSeconds(3f);
     }
@@ -660,6 +687,7 @@ public class RS_GameManager : MonoBehaviour
         tweezers_H.SetActive(false);
         tweezers.GetComponent<BoxCollider>().enabled = false;
         tweezers.GetComponent<Rigidbody>().useGravity = false;
+        Arrow5.SetActive(false);
         //Play Grab and Pull Suture Animation
         //SetActive CutGuide
         yield return new WaitForSeconds(3f);
@@ -675,7 +703,7 @@ public class RS_GameManager : MonoBehaviour
         //Play Cut Animation
         yield return new WaitForSeconds(3f);
 
-        //Play Arrow Guide
+        //Play Pull Guide
         //Tweezer1_H SetActive(false)
         //Play Tweezer Pull Animation
 
