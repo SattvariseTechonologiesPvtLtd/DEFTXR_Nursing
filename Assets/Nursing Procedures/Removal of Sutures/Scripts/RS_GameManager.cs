@@ -95,6 +95,13 @@ public class RS_GameManager : MonoBehaviour
     public GameObject Arrow4;
     public GameObject Arrow5;
 
+    //Wound Highlight Planes
+    public GameObject AllSutures;
+    public GameObject Suture1;
+    public GameObject Suture2;
+    public GameObject Suture3;
+    public GameObject Suture4;
+    public GameObject Suture5;
 
     // Start is called before the first frame update
     void Start()

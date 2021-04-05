@@ -5222,6 +5222,12 @@ MonoBehaviour:
   Arrow3: {fileID: 865675407}
   Arrow4: {fileID: 258123771}
   Arrow5: {fileID: 601612131}
+  AllSutures: {fileID: 911761907}
+  Suture1: {fileID: 474082549}
+  Suture2: {fileID: 1658677643}
+  Suture3: {fileID: 1316457829}
+  Suture4: {fileID: 418456652}
+  Suture5: {fileID: 283089982}
 --- !u!82 &485214230
 AudioSource:
   m_ObjectHideFlags: 0

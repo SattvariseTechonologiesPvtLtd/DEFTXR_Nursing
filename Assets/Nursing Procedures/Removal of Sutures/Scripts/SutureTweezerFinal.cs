@@ -8,27 +8,27 @@ public class SutureTweezerFinal : MonoBehaviour
 {
     public void OnTriggerEnter(Collider col)
     {
-        if (String.Compare(col.gameObject.name, "SutureKnot1") == 0)
+        if (String.Compare(col.gameObject.name, "Suture1 Highlight") == 0)
         { 
                 StartCoroutine(RS_GameManager.Instance.Step6());
                 Debug.Log("Collided"); 
         }
-        else if (String.Compare(col.gameObject.name, "SutureKnot2") == 0)
+        else if (String.Compare(col.gameObject.name, "Suture2 Highlight") == 0)
         {
             StartCoroutine(RS_GameManager.Instance.Step9());
             Debug.Log("Collided");
         }
-        else if (String.Compare(col.gameObject.name, "SutureKnot3") == 0)
+        else if (String.Compare(col.gameObject.name, "Suture3 Highlight") == 0)
         {
             StartCoroutine(RS_GameManager.Instance.Step15());
             Debug.Log("Collided");
         }
-        else if (String.Compare(col.gameObject.name, "SutureKnot4") == 0)
+        else if (String.Compare(col.gameObject.name, "Suture4 Highlight") == 0)
         {
             StartCoroutine(RS_GameManager.Instance.Step18());
             Debug.Log("Collided");
         }
-        else if (String.Compare(col.gameObject.name, "SutureKnot5") == 0)
+        else if (String.Compare(col.gameObject.name, "Suture5 Highlight") == 0)
         {
             StartCoroutine(RS_GameManager.Instance.Step21());
             Debug.Log("Collided");
